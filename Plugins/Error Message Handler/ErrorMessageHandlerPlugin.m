@@ -108,7 +108,7 @@
 
 - (BOOL)performActionID:(NSString *)actionID forListObject:(AIListObject *)listObject withDetails:(NSDictionary *)details triggeringEventID:(NSString *)eventID userInfo:(id)userInfo
 {
-    NSString    *dateString = [[NSDateFormatter localizedDateFormatterShowingSeconds:NO showingAMorPM:YES] stringFromDate:[NSCalendarDate calendarDate]];
+    NSString    *dateString = [[NSCalendarDate calendarDate] descriptionWithCalendarFormat:[NSDateFormatter localizedDateFormatStringShowingSeconds:NO showingAMorPM:YES]];
 	NSString	*alertText = [[details objectForKey:KEY_ALERT_TEXT] lastPathComponent];
 
 	//Display an alert

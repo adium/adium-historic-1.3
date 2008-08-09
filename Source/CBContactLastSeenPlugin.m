@@ -134,11 +134,10 @@
 			NSString	*timeElapsed;
 			NSString	*timeElapsedWithDesignation;
 			
-			sinceDateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-			[sinceDateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-			[sinceDateFormatter setDateFormat:[NSString stringWithFormat:@"%@, %@",
-											   [[NSDateFormatter localizedShortDateFormatter] dateFormat],
-											   [NSDateFormatter localizedDateFormatStringShowingSeconds:NO showingAMorPM:YES]]];
+			sinceDateFormatter = [[[NSDateFormatter alloc] initWithDateFormat:[NSString stringWithFormat:@"%@, %@", 
+																				[[NSDateFormatter localizedShortDateFormatter] dateFormat],
+																				[NSDateFormatter localizedDateFormatStringShowingSeconds:NO showingAMorPM:YES]]
+														 allowNaturalLanguage:YES] autorelease];
 			
 			//stringForTimeIntervalSinceDate may return @"" if it's too short of an interval.
 			timeElapsed = [NSDateFormatter stringForTimeIntervalSinceDate:lastSeenDate showingSeconds:NO abbreviated:NO];

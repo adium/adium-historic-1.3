@@ -283,17 +283,8 @@ static NSArray *validSenderColors;
 	if (!format || [format length] == 0) {
 		format = [NSDateFormatter localizedDateFormatStringShowingSeconds:NO showingAMorPM:NO];
 	}
-
 	[timeStampFormatter release];
-
-	if ([format rangeOfString:@"%"].location != NSNotFound) {
-		/* Support strftime-style format strings, which old message styles may use */
-		timeStampFormatter = [[NSDateFormatter alloc] initWithDateFormat:format allowNaturalLanguage:NO];
-	} else {
-		timeStampFormatter = [[NSDateFormatter alloc] init];
-		[timeStampFormatter	setFormatterBehavior:NSDateFormatterBehavior10_4];
-		[timeStampFormatter setDateFormat:format];
-	}
+	timeStampFormatter = [[NSDateFormatter alloc] initWithDateFormat:format allowNaturalLanguage:NO];
 }
 
 - (void)setShowUserIcons:(BOOL)inValue
@@ -667,11 +658,13 @@ static NSArray *validSenderColors;
 	
 	//Replacements applicable to any AIContentObject
 	[inString replaceKeyword:@"%time%" 
-				  withString:(date ? [timeStampFormatter stringFromDate:date] : @"")];
+			  withString:(date ? [timeStampFormatter stringForObjectValue:date] : @"")];
 
 	[inString replaceKeyword:@"%shortTime%"
 				  withString:(date ?
-							  [[NSDateFormatter localizedDateFormatterShowingSeconds:NO showingAMorPM:NO] stringFromDate:date] :
+							  [[[[NSDateFormatter alloc] initWithDateFormat:[NSDateFormatter localizedDateFormatStringShowingSeconds:NO
+																													   showingAMorPM:NO]
+													   allowNaturalLanguage:NO] autorelease] stringForObjectValue:date] :
 							  @"")];
 
 	if ([inString rangeOfString:@"%senderStatusIcon%"].location != NSNotFound) {
@@ -736,13 +729,10 @@ static NSArray *validSenderColors;
 			if (endRange.location != NSNotFound && endRange.location > NSMaxRange(range)) {
 				if (date) {
 					NSString *timeFormat = [inString substringWithRange:NSMakeRange(NSMaxRange(range), (endRange.location - NSMaxRange(range)))];
-					
-					NSDateFormatter	*dateFormatter = [[NSDateFormatter alloc] init];
-					[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-					[dateFormatter setDateFormat:timeFormat];
-					
+					NSDateFormatter	*dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:timeFormat 
+																			allowNaturalLanguage:NO];
 					[inString safeReplaceCharactersInRange:NSUnionRange(range, endRange) 
-												withString:[dateFormatter stringFromDate:date]];
+												withString:[dateFormatter stringForObjectValue:date]];
 					
 					[dateFormatter release];
 					
@@ -1071,7 +1061,7 @@ static NSArray *validSenderColors;
 				  withString:serviceIconTag];
 	
 	[inString replaceKeyword:@"%timeOpened%"
-				  withString:[timeStampFormatter stringFromDate:[chat dateOpened]]];
+				  withString:[timeStampFormatter stringForObjectValue:[chat dateOpened]]];
 	
 	//Replaces %time{x}% with a timestamp formatted like x (using NSDateFormatter)
 	do{
@@ -1082,13 +1072,11 @@ static NSArray *validSenderColors;
 
 			if (endRange.location != NSNotFound && endRange.location > NSMaxRange(range)) {				
 				NSString		*timeFormat = [inString substringWithRange:NSMakeRange(NSMaxRange(range), (endRange.location - NSMaxRange(range)))];
-				
-				NSDateFormatter	*dateFormatter = [[NSDateFormatter alloc] init];
-				[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-				[dateFormatter setDateFormat:timeFormat];
+				NSDateFormatter	*dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:timeFormat 
+																		allowNaturalLanguage:NO];
 
 				[inString safeReplaceCharactersInRange:NSUnionRange(range, endRange) 
-												withString:[dateFormatter stringFromDate:[chat dateOpened]]];
+												withString:[dateFormatter stringForObjectValue:[chat dateOpened]]];
 				[dateFormatter release];
 				
 			}

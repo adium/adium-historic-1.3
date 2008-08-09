@@ -185,13 +185,13 @@
 	//Current Time
 	if ([self string:str containsValidKeyword:@"%t"]) {
 		NSCalendarDate 	*currentDate = [NSCalendarDate calendarDate];
-		NSDateFormatter		*localDateFormatter = [NSDateFormatter localizedDateFormatterShowingSeconds:YES
-																						  showingAMorPM:YES];
+		NSString		*localDateFormat = [NSDateFormatter localizedDateFormatStringShowingSeconds:YES
+																					  showingAMorPM:YES];
 		
 		if (!newAttributedString) newAttributedString = [[attributedString mutableCopy] autorelease];
 
 		[newAttributedString replaceOccurrencesOfString:@"%t"
-											 withString:[localDateFormatter stringFromDate:currentDate]
+											 withString:[currentDate descriptionWithCalendarFormat:localDateFormat]
 												options:NSLiteralSearch
 												  range:NSMakeRange(0, [newAttributedString length])];
 	}

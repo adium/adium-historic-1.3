@@ -624,9 +624,9 @@ static NSArray *draggedTypes = nil;
 	 */
 	if ((!previousContent && [content isKindOfClass:[AIContentContext class]]) ||
 	   (![content isFromSameDayAsContent:previousContent])) {
-		
-		NSString *dateMessage = [[NSDateFormatter localizedDateFormatter] stringFromDate:[content date]];
-		
+		NSString *dateMessage = [[content date] descriptionWithCalendarFormat:[[NSDateFormatter localizedDateFormatter] dateFormat]
+														   timeZone:nil
+															 locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
 		dateSeparator = [AIContentEvent statusInChat:[content chat]
 										  withSource:[[content chat] listObject]
 										 destination:[[content chat] account]

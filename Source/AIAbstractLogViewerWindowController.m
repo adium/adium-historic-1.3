@@ -176,12 +176,8 @@ static int toArraySort(id itemA, id itemB, void *context);
 
     sortDirection = YES;
     searchMode = LOG_SEARCH_CONTENT;
-	
-    headerDateFormatter = [[NSDateFormatter alloc] init];
-	[headerDateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-	[headerDateFormatter setDateStyle:NSDateFormatterFullStyle];
-	[headerDateFormatter setTimeStyle:NSDateFormatterNoStyle];
-	
+    headerDateFormatter = [[NSDateFormatter alloc] initWithDateFormat:[[NSUserDefaults standardUserDefaults] stringForKey:NSDateFormatString] 
+												 allowNaturalLanguage:NO];
     currentSearchResults = [[NSMutableArray alloc] init];
     fromArray = [[NSMutableArray alloc] init];
     fromServiceArray = [[NSMutableArray alloc] init];

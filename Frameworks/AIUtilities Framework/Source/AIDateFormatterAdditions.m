@@ -33,57 +33,78 @@ typedef enum {
 
 + (NSDateFormatter *)localizedDateFormatter
 {
-	// Thursday, July 31, 2008
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-	[formatter setDateStyle:NSDateFormatterFullStyle];
-	[formatter setTimeStyle:NSDateFormatterNoStyle];
-	return [formatter autorelease];
+	return [[[NSDateFormatter alloc] initWithDateFormat:[[NSUserDefaults standardUserDefaults] stringForKey:NSDateFormatString] 
+								   allowNaturalLanguage:NO] autorelease];
 }
-
 + (NSDateFormatter *)localizedShortDateFormatter
 {
-	// 7/31/08
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-	[formatter setDateStyle:NSDateFormatterShortStyle];
-	[formatter setTimeStyle:NSDateFormatterNoStyle];
-	return [formatter autorelease];
+	return [[[NSDateFormatter alloc] initWithDateFormat:[[NSUserDefaults standardUserDefaults] stringForKey:NSShortDateFormatString] 
+								   allowNaturalLanguage:NO] autorelease];
 }
 
 + (NSDateFormatter *)localizedDateFormatterShowingSeconds:(BOOL)seconds showingAMorPM:(BOOL)showAmPm
 {
-	NSDateFormatter	*formatter = [[NSDateFormatter alloc] init];
-	[formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-	[formatter setDateFormat:[self localizedDateFormatStringShowingSeconds:seconds showingAMorPM:showAmPm]];
-	return [formatter autorelease];
+    NSString	*format = [self localizedDateFormatStringShowingSeconds:seconds showingAMorPM:showAmPm];
+	
+	return [[[NSDateFormatter alloc] initWithDateFormat:format allowNaturalLanguage:NO] autorelease];
 }
 
 + (NSString *)localizedDateFormatStringShowingSeconds:(BOOL)seconds showingAMorPM:(BOOL)showAmPm
 {
-	NSString *formatString;
-	
-	// Get the current time format string
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-	[formatter setDateStyle:NSDateFormatterNoStyle];
-	[formatter setTimeStyle:(seconds) ? NSDateFormatterMediumStyle : NSDateFormatterShortStyle];
-	
-	if(!showAmPm) {
-		NSMutableString *newFormat = [[NSMutableString alloc] initWithString:[formatter dateFormat]];
-		[newFormat replaceOccurrencesOfString:@" a"
-								   withString:@""
-									  options:NSBackwardsSearch | NSLiteralSearch
-										range:NSMakeRange(0,[newFormat length])];
-		formatString = [newFormat copy];
-		[newFormat release];
-	} else {
-		formatString = [[formatter dateFormat] retain];
+    static NSString 	*cache[4] = {nil,nil,nil,nil}; //Cache for the 4 combinations of date string
+    static NSString     *oldTimeFormatString = nil;
+
+    NSString            *currentTimeFormatString = [[NSUserDefaults standardUserDefaults] stringForKey:NSTimeFormatString];
+
+    //if the time format string changed, clear the cache, then save the current one
+    if (![currentTimeFormatString isEqualToString:oldTimeFormatString]) {
+        for (unsigned i = 0; i < 4; i++) {
+			[cache[i] release];
+			cache[i]=nil;
+		}
+        
+        [oldTimeFormatString release];
+        oldTimeFormatString = [currentTimeFormatString retain];
+    }
+    
+    StringType		type;
+    
+    //Determine the type of string requested
+    if (!seconds && !showAmPm) type = NONE;
+    else if (seconds && !showAmPm) type = SECONDS;
+    else if (!seconds & showAmPm) type = AMPM;
+    else type = BOTH;
+
+    //Cache the string if it's not already cached
+    if (!cache[type]) {	
+		//use system-wide defaults for date format
+		NSMutableString *localizedDateFormatString = [currentTimeFormatString mutableCopy];
+
+		if (!showAmPm) { 
+			//potentially could use stringForKey:NSAMPMDesignation as space isn't always the separator between time and %p
+			[localizedDateFormatString replaceOccurrencesOfString:@" %p" 
+													withString:@"" 
+													options:NSLiteralSearch 
+													range:NSMakeRange(0,[localizedDateFormatString length])];
+		}
+
+		if (!seconds) {
+			NSUInteger secondSeparatorIndex = [localizedDateFormatString rangeOfString:@"%S" options:NSBackwardsSearch].location;
+			
+			if ( (secondSeparatorIndex != NSNotFound) && (secondSeparatorIndex > 0) ) {
+				NSString *secondsSeparator = [localizedDateFormatString substringWithRange:NSMakeRange(secondSeparatorIndex-1,1)];
+				[localizedDateFormatString replaceOccurrencesOfString:[NSString stringWithFormat:@"%@%@",secondsSeparator,@"%S"] 
+													withString:@""
+													options:NSLiteralSearch
+													range:NSMakeRange(0,[localizedDateFormatString length])];
+			}
+		}
+
+		//Cache the result
+		cache[type] = [[localizedDateFormatString autorelease] copy];
 	}
-	
-	[formatter release];
-	
-    return formatString;
+
+    return cache[type];
 }
 
 
@@ -239,219 +260,6 @@ typedef enum {
 	}
 
 	return [parts componentsJoinedByString:@" "];
-}
-
-
-/*!
- *@brief get the strftime-style format string for an NSDateFormatter
- *
- * Translations are approximate! Not all fields supported by TR35-4 are
- * supported by the strftime format style.
- *
- *@result an NSString containing the strftime-style format string
- */ 
-- (NSString *)dateCalendarFormat {
-	NSString *format = [self dateFormat];
-	
-	// If we're using 10.0-10.3 behavior, it's easy
-	if ([self formatterBehavior] == NSDateFormatterBehavior10_0) {
-		return format;
-	}
-	
-	// Scan across the format string, building the strftime-style format
-	NSMutableString *newFormat = [[NSMutableString alloc] initWithCapacity:[format length]];
-	
-	NSScanner *scanner = [[NSScanner alloc] initWithString:format];
-	[scanner setCharactersToBeSkipped:[NSCharacterSet characterSetWithRange:NSMakeRange(0, 0)]];
-	
-	NSCharacterSet *t354symbols = [NSCharacterSet characterSetWithCharactersInString:@"GyYuMwWdDFgEeahHKkmsSAzZ'%"];
-	
-	while(![scanner isAtEnd]) {		
-		// Copy over anything that we don't handle specially
-		NSString *skipped;
-		if ([scanner scanUpToCharactersFromSet:t354symbols intoString:&skipped]) {
-			[newFormat appendString:skipped];
-			continue;
-		}
-		
-		// Get the current character and grab all contiguous repetitions of it
-		unichar it = [format characterAtIndex:[scanner scanLocation]];
-		
-		NSString *span;
-		if (![scanner scanCharactersFromSet:[NSCharacterSet characterSetWithRange:NSMakeRange(it, 1)]
-								 intoString:&span]) {
-			break;
-		}
-		
-		// Perform the translation		
-		// XXX Not supported or not fully supported: GuwWFgEeKkSAzZ
-		
-		if (it == 'G') {
-			// strftime has no equivalent of era, so we assume it's AD
-			[newFormat appendString:@"AD"];
-		
-		} else if (it == 'y' || it == 'y') {			
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%1y"];
-					break;
-				case 2:
-					[newFormat appendString:@"%y"];
-					break;
-				case 3:
-					[newFormat appendString:@"%3Y"];
-					break;
-				case 4:
-					[newFormat appendString:@"%Y"];
-					break;
-				default:
-					[newFormat appendFormat:@"%%%iY", [span length]];
-			}
-			
-		} else if (it == 'M') {
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%1m"];
-					break;
-				case 2:
-					[newFormat appendString:@"%m"];
-					break;
-				case 3:
-					[newFormat appendString:@"%b"];
-					break;
-				case 4:
-					[newFormat appendString:@"%B"];
-					break;
-				default:
-					[newFormat appendString:@"%1b"];
-			}
-			
-		} else if (it == 'd') {
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%e"];
-					break;
-				default:
-					[newFormat appendString:@"%d"];
-			}
-		
-		} else if (it == 'D') {
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%1j"];
-					break;
-				case 2:
-					[newFormat appendString:@"%2j"];
-					break;
-				default:
-					[newFormat appendString:@"%j"];
-			}
-		
-		} else if (it == 'E' || it == 'e') {
-			switch ([span length]) {
-				case 1:
-				case 2:
-					// XXX In TR35-4, Sunday = 1, whereas in strftime Sunday = 0
-					[newFormat appendString:@"%w"];
-					break;
-				case 3:
-					[newFormat appendString:@"%a"];
-					break;
-				case 4:
-					[newFormat appendString:@"%A"];
-					break;
-				default:
-					[newFormat appendString:@"%1a"];
-			}
-		
-		} else if (it == 'a') {
-			[newFormat appendString:@"%p"];
-			
-		} else if (it == 'h') {
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%1I"];
-					break;
-				default:
-					[newFormat appendString:@"%I"];
-			}
-		
-		} else if (it == 'H') {
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%1H"];
-					break;
-				default:
-					[newFormat appendString:@"%H"];
-			}
-			
-		} else if (it == 'm') {
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%1M"];
-					break;
-				default:
-					[newFormat appendString:@"%M"];
-			}
-			
-		} else if (it == 's') {
-			switch ([span length]) {
-				case 1:
-					[newFormat appendString:@"%1S"];
-					break;
-				default:
-					[newFormat appendString:@"%S"];
-			}
-			
-		} else if (it == 'z') {
-			[newFormat appendString:@"%Z"];
-			
-		} else if (it == 'Z') {
-			[newFormat appendString:@"%z"];
-			
-		} else if (it == '\'') {
-			if ([span length] >= 2) {
-				[newFormat appendString:@"'"];
-				[scanner setScanLocation:[scanner scanLocation] - [span length] + 2];
-			
-			} else {
-				while(1) {
-					NSString *text;
-					if ([scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"'%"]
-												intoString:&text]) {
-						[newFormat appendString:text];
-					}
-					
-					if ([format characterAtIndex:([scanner scanLocation] + 1)] == '\'') {
-						if (([scanner scanLocation] + 1 < [format length]) && ([format characterAtIndex:([scanner scanLocation] + 1)] == '\'')) {
-							[newFormat appendString:@"'"];
-							[scanner setScanLocation:([scanner scanLocation] + 2)];
-						} else {
-							[scanner setScanLocation:([scanner scanLocation] + 1)];
-							break;
-						}
-					} else {
-						[newFormat appendString:@"%%"];
-					}
-				}
-			}
-		
-		} else if (it == '%') {
-			[newFormat appendString:@"%%"];
-			[scanner setScanLocation:[scanner scanLocation] - [span length] + 1];
-		
-		} else {
-			//NSLog(@"Unhandled format %@", span);
-		}
-	}
-
-	// Make it immutable
-	NSString *result = [newFormat copy];
-	[newFormat release];
-	return result;
-
-	// http://developer.apple.com/documentation/Cocoa/Conceptual/DataFormatting/Articles/dfDateFormatterSyntax.html
-	// http://unicode.org/reports/tr35/tr35-4.html#Date_Format_Patterns
 }
 
 @end
