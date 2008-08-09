@@ -302,8 +302,10 @@ static void endStructure(CFXMLParserRef parser, void *xmlType, void *context);
 					}
 				}
 				
-				NSString *timestampStr = [[NSDateFormatter localizedDateFormatterShowingSeconds:YES showingAMorPM:YES] stringFromDate:date];
-				
+				NSString *timestampStr = [date descriptionWithCalendarFormat:[NSDateFormatter localizedDateFormatStringShowingSeconds:YES
+																														showingAMorPM:YES]
+																	timeZone:nil
+																	  locale:nil];
 				BOOL sentMessage = [mySN isEqualToString:sender];
 				[output appendAttributedString:[htmlDecoder decodeHTML:[NSString stringWithFormat:
 										 @"<div class=\"%@\">%@<span class=\"sender\">%@%@:</span></div> ",
@@ -347,9 +349,11 @@ static void endStructure(CFXMLParserRef parser, void *xmlType, void *context);
 				if([displayMessage length])
 					[output appendAttributedString:[htmlDecoder decodeHTML:[NSString stringWithFormat:@"<div class=\"status\">%@ (%@)</div>\n",
 																			displayMessage,
-																			[[NSDateFormatter localizedDateFormatterShowingSeconds:YES
-																												     showingAMorPM:YES] stringFromDate:date]]]];
-					state = XML_STATE_CHAT;
+																			[date descriptionWithCalendarFormat:[NSDateFormatter localizedDateFormatStringShowingSeconds:YES
+																																						   showingAMorPM:YES]
+																									   timeZone:nil
+																										 locale:nil]]]];
+				state = XML_STATE_CHAT;
 			}			
 		case XML_STATE_CHAT:
 			if([name isEqualToString:@"chat"])

@@ -733,7 +733,9 @@ static AIHTMLDecoder	*encoderGroupChat = nil;
 {
 	NSString		*replacementString = nil;
 	NSDateFormatter	*dayFormatter = [NSDateFormatter localizedDateFormatter];
-	NSDateFormatter *timeFormatter = [NSDateFormatter localizedDateFormatterShowingSeconds:NO showingAMorPM:YES];
+	NSDateFormatter *timeFormatter = [[[NSDateFormatter alloc] initWithDateFormat:[NSDateFormatter localizedDateFormatStringShowingSeconds:NO 
+																														  showingAMorPM:YES] 
+														  allowNaturalLanguage:YES] autorelease];	
 	struct tm tm;
 
 	if (inDateAndTime && (strptime([inDateAndTime UTF8String], "%c", &tm) != NULL)) {
