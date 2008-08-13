@@ -570,6 +570,15 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 	return statusID;
 }
 
+#pragma mark Contact messaging
+
+#if USE_PECAN
+- (BOOL)maySendMessageToInvisibleContact:(AIListContact *)inContact
+{
+	return NO;
+}
+#endif
+
 #pragma mark Contact List Menu Items
 - (NSString *)titleForContactMenuLabel:(const char *)label forContact:(AIListContact *)inContact
 {
