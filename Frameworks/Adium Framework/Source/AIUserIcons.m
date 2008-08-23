@@ -397,11 +397,12 @@ static int compareSources(id <AIUserIconSource> sourceA, id <AIUserIconSource> s
 									   forKey:[inObject internalObjectID]];
 	}
 
-	return (userIcon ?
-		   	userIcon :
-			[AIServiceIcons serviceIconForObject:inObject
-										   type:AIServiceIconSmall
-									  direction:AIIconNormal]);
+	if(!userIcon)
+		userIcon = [AIServiceIcons serviceIconForObject:inObject
+												   type:AIServiceIconSmall
+											  direction:AIIconNormal];
+	
+	return [[userIcon retain] autorelease];
 }
 
 #pragma mark -
