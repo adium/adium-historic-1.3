@@ -347,12 +347,19 @@ static NSMutableParagraphStyle	*leftParagraphStyleWithTruncatingTail = nil;
 	[NSGraphicsContext restoreGraphicsState];	
 }
 
+/*!
+ * @brief Return the attributed string to be displayed as the primary text of the cell
+ */
+- (NSAttributedString *)displayName
+{
+	return [[[NSAttributedString alloc] initWithString:[self labelString]
+											attributes:[self labelAttributes]] autorelease];
+}
+
 //Draw our display name
 - (NSRect)drawDisplayNameWithFrame:(NSRect)inRect
 {
-	NSAttributedString	*displayName = [[NSAttributedString alloc] initWithString:[self labelString]
-																	   attributes:[self labelAttributes]];
-																	   
+	NSAttributedString	*displayName = [self displayName];
 	NSSize				nameSize = [displayName size];
 	NSRect				rect = inRect;
 
@@ -377,7 +384,6 @@ static NSMutableParagraphStyle	*leftParagraphStyleWithTruncatingTail = nil;
 									   rect.origin.y + half,
 									   rect.size.width,
 									   nameSize.height)];
-	[displayName release];
 
 	//Adjust the drawing rect
 	switch ([self textAlignment]) {
@@ -398,30 +404,9 @@ static NSMutableParagraphStyle	*leftParagraphStyleWithTruncatingTail = nil;
 //Display string for our list object
 - (NSString *)labelString
 {
-	NSString *leftText = [listObject valueForProperty:@"Left Text"];
-	NSString *rightText = [listObject valueForProperty:@"Right Text"];
-
-	//Ordering debug
-#ifdef ORDERING_DEBUG
-	rightText = (rightText ?
-				 [rightText stringByAppendingFormat:@" %f",[listObject orderIndex]] :
-				 [NSString stringWithFormat:@" %f",[listObject orderIndex]]); 
-#endif
-
-	if (!leftText && !rightText) {
-		return ([self shouldShowAlias] ? 
-				[listObject longDisplayName] :
-				([listObject formattedUID] ? [listObject formattedUID] : [listObject longDisplayName]));
-	} else {
-		//Combine left text, the object name, and right text
-		return [NSString stringWithFormat:@"%@%@%@",
-			(leftText ? leftText : @""),
-			([self shouldShowAlias] ? [listObject longDisplayName] : ([listObject formattedUID] ?
-																	 [listObject formattedUID] :
-																	 [listObject longDisplayName])),
-			(rightText ? rightText : @"")];
-	}
-
+	return ([self shouldShowAlias] ? 
+			[listObject longDisplayName] :
+			([listObject formattedUID] ? [listObject formattedUID] : [listObject longDisplayName]));
 }
 
 - (BOOL)shouldShowAlias
