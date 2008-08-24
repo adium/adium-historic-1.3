@@ -518,6 +518,11 @@ static int nextChatNumber = 0;
 	return [[self containedObjects] objectAtIndex:index];
 }
 
+- (AIListObject *)visibleObjectAtIndex:(NSUInteger)index
+{
+	return [self objectAtIndex:index];
+}
+
 - (int)indexOfObject:(AIListObject *)inObject
 {
     return [[self containedObjects] indexOfObject:inObject];
@@ -539,6 +544,11 @@ static int nextChatNumber = 0;
 - (NSArray *)listContacts
 {
 	return [self containedObjects];
+}
+
+- (NSArray *)visibleListContacts
+{
+	return [self listContacts];
 }
 
 - (BOOL)addObject:(AIListObject *)inObject
@@ -607,6 +617,11 @@ static int nextChatNumber = 0;
 - (unsigned)visibleCount
 {
 	return [self containedObjectsCount];
+}
+
+- (void)visibilityOfContainedObject:(AIListObject *)inObject changedTo:(BOOL)inVisible
+{
+	//Nothing to do; we don't pay attention to the object's visibility
 }
 
 - (NSString *)contentsBasedIdentifier
