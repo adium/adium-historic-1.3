@@ -130,7 +130,7 @@
  */
 - (AIListObject *)visibleObjectAtIndex:(NSUInteger)index
 {
-	return (AIListObject *)[self.containedObjects objectAtIndex:index];
+	return (AIListObject *)[[self containedObjects] objectAtIndex:index];
 }
 
 //Object Storage ---------------------------------------------------------------------------------------------
@@ -180,7 +180,7 @@
 
 - (NSArray *)visibleListContacts
 {
-	return self.containedObjects;
+	return [self containedObjects];
 }
 
 //Remove all the objects from this group (PRIVATE: For contact controller only)
