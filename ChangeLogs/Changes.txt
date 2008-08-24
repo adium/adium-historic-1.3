@@ -16,22 +16,8 @@ Version 1.3
    * Support for personal messages
    * Improved error handling for networking issues
    * Improved http method support
-
  * Major performance improvements, most notable when signing on multiple accounts simultaneously and when chatting while other applications are making heavy use of your hard drive.
  * Tons of improvements and fixes, big and small - see below for all the details!
-
- * Fixed storage of ordering within metacontact and groups in certain situations (#10028)
- * Removed some invalid sender colors in message windows (#10219)
- * Fixed moving a contact from one metacontact to another (#10188)
- * Worked around a Firefox 3 problem with retrieving the current webpage's information. The bug is [https://bugzilla.mozilla.org/show_bug.cgi?id=427448 427448].
- * Fixed a crash when disconnecting if a Send Message action were applied to the "Contact No Longer Seen" event (#10181)
- * Fixed issues with applescript and modifying statuses (#8809, #10118)
- * Fixed 'go online with message' applescript command (#10082)
- * Added a 'name' property for single-user chats (#8825)
- * Fixed the contextual menu items for Address Book integration within the message window
- * Added Italics support in the chat transcript viewer (#10086)
- * Fixed problems with manually assigned address book cards and combined contacts
-
 
 == General Changes ==
  * Improved management of contact and account icons:
@@ -68,6 +54,18 @@ Version 1.3
    * Updated service icons for ICQ, Yahoo!, Gadu-Gadu, MySpace IM, Sametime, and QQ (#6338)
    * Updated MSN emoticons to include a more comprehensive default set (#3647)
  * Added "MobileMe" service (#10399)
+ * Fixed storage of ordering within metacontact and groups in certain situations (#10028)
+ * Removed some invalid sender colors in message windows (#10219)
+ * Fixed moving a contact from one metacontact to another (#10188)
+ * Worked around a Firefox 3 problem with retrieving the current webpage's information. The bug is [https://bugzilla.mozilla.org/show_bug.cgi?id=427448 427448].
+ * Fixed a crash when disconnecting if a Send Message action were applied to the "Contact No Longer Seen" event (#10181)
+ * Fixed issues with applescript and modifying statuses (#8809, #10118)
+ * Fixed 'go online with message' applescript command (#10082)
+ * Added a 'name' property for single-user chats (#8825)
+ * Fixed the contextual menu items for Address Book integration within the message window
+ * Added Italics support in the chat transcript viewer (#10086)
+ * Fixed problems with manually assigned address book cards and combined contacts
+ * Updated to libpurple 2.5.0
 
 == Contact List ==
  * Combined contacts can now be expanded and collapsed in the contact list (#5545)
