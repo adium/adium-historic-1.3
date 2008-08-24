@@ -557,9 +557,9 @@
 		if (index != NSOutlineViewDropOnItemIndex && !canSortManually) {
 			/* We're attempting a reorder or containing object change,
 			 * and the sort controller says there is no manual sorting allowed. */
-			AIListObject<AIContainingObject> *actualTarget = (item ? item : adium.contactController.contactList);
-			NSInteger indexForInserting = [[AISortController activeSortController] indexForInserting:[dragItems objectAtIndex:0]
-																						 intoObjects:[actualTarget containedObjects]];
+			AIListObject<AIContainingObject> *actualTarget = (item ? item : [[adium contactController] contactList]);
+			NSInteger indexForInserting = [[[adium contactController] activeSortController] indexForInserting:[dragItems objectAtIndex:0]
+																								  intoObjects:[actualTarget containedObjects]];
 			if (indexForInserting != index)
 				[outlineView setDropItem:item dropChildIndex:indexForInserting];
 
