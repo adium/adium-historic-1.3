@@ -246,8 +246,9 @@
 		return;
 	}
 	
-	NSMutableArray *listContacts = [[adium contactController] allContacts];
+	NSMutableArray *listContacts = [[[[adium contactController] allContacts] mutableCopy] autorelease];
 	[listContacts addObjectsFromArray:[[adium contactController] allBookmarks]];
+	[listContacts addObjectsFromArray:[[adium contactController] allMetaContacts]];
 	
 	// Delay list object notifications until we're done
 	[[adium contactController] delayListObjectNotifications];
@@ -256,11 +257,6 @@
 	AIListContact	*listContact;
 
 	while ((listContact = [enumerator nextObject])) {
-		// If this contact is in a meta contact, we need to check the meta contact, not this particular contact.
-		if ([[listContact containingObject] isKindOfClass:[AIMetaContact class]]) {
-			listContact = (AIListContact *)[listContact containingObject];
-		}
-
 		[self setVisibility:[self evaluatePredicateOnListContact:listContact withSearchString:searchString]
 			  ofListContact:listContact
 				 withReason:AIContactFilteringReason];

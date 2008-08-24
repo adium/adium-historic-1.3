@@ -44,11 +44,18 @@ typedef enum {
 
 - (float)smallestOrder;
 - (float)largestOrder;
+
+/*!
+ * @brief Get the visbile object at a given index
+ */
+- (AIListObject *)visibleObjectAtIndex:(NSUInteger)index;
+
 - (void)listObject:(AIListObject *)listObject didSetOrderIndex:(float)inOrderIndex;
 - (float)orderIndexForObject:(AIListObject *)listObject;
 
 //Should list each list contact only once (for groups, this is the same as the objectEnumerator)
 - (NSArray *)listContacts;
+- (NSArray *)visibleListContacts;
 
 - (BOOL)addObject:(AIListObject *)inObject;
 
@@ -59,6 +66,9 @@ typedef enum {
 - (BOOL)isExpanded;
 - (BOOL)isExpandable;
 - (unsigned)visibleCount;
+
+- (void)visibilityOfContainedObject:(AIListObject *)inObject changedTo:(BOOL)inVisible;
+
 @end
 
 @protocol AIListObject

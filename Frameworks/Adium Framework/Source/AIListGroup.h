@@ -45,7 +45,6 @@
 
 //Visibility
 - (unsigned)visibleCount;
-- (void)visibilityOfContainedObject:(AIListObject *)inObject changedTo:(BOOL)inVisible;
 
 //Expanded State (PRIVATE: For the contact list view to let us know our state)
 - (void)setExpanded:(BOOL)inExpanded;

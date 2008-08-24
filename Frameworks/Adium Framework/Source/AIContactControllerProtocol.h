@@ -88,6 +88,7 @@ typedef enum {
 - (NSSet *)allContactsWithService:(AIService *)service UID:(NSString *)inUID existingOnly:(BOOL)existingOnly;
 - (AIListGroup *)offlineGroup;
 - (BOOL)useOfflineGroup;
+- (NSArray *)allMetaContacts;
 
 - (AIListBookmark *)bookmarkForChat:(AIChat *)inChat;
 
