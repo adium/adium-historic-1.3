@@ -24,8 +24,9 @@
 #define KEY_MSN_DISPLAY_NAMED_CHANGED	@"MSN:Display Name Changed"
 
 @interface ESPurpleMSNAccount : CBPurpleAccount <AIAccount_Files>{
-	NSDate		*lastFriendlyNameChange;
-	NSString	*queuedFriendlyName;
+	NSDate		 *lastFriendlyNameChange;
+	NSString	 *queuedFriendlyName;
+	NSMutableSet *suspectedInvisibleContacts;
 }
 
 @end

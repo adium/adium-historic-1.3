@@ -38,6 +38,9 @@
 
 #import "SLPurpleCocoaAdapter.h"
 
+//Needed for msnp12 hackery
+#import <Adium/AIChat.h>
+
 #define DEFAULT_MSN_PASSPORT_DOMAIN				@"@hotmail.com"
 #define SECONDS_BETWEEN_FRIENDLY_NAME_CHANGES	10
 
@@ -83,6 +86,7 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 - (void)dealloc {
 	[lastFriendlyNameChange release];
 	[queuedFriendlyName release];
+	[suspectedInvisibleContacts release];
 
 	[super dealloc];
 }
@@ -569,16 +573,6 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 
 	return statusID;
 }
-
-#pragma mark Contact messaging
-
-#if USE_PECAN
-- (BOOL)maySendMessageToInvisibleContact:(AIListContact *)inContact
-{
-	return NO;
-}
-#endif
-
 #pragma mark Contact List Menu Items
 - (NSString *)titleForContactMenuLabel:(const char *)label forContact:(AIListContact *)inContact
 {
@@ -615,6 +609,56 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 
 	return [super titleForAccountActionMenuLabel:label];
 }
+
+#pragma mark Messaging invisible contacts hackery
+
+#if USE_PECAN
+
+/*!
+ * @brief Is it possible that a contact who appears offline is actually invisible and can be messaged?
+ *
+ * MSNp12 can't send messages to invisible contacts from a dead start, but it can reply if an invisible
+ * contact initiates the conversation.
+ */
+- (BOOL)maySendMessageToInvisibleContact:(AIListContact *)inContact
+{
+	if ([suspectedInvisibleContacts containsObject:[inContact internalObjectID]])
+		return YES;
+	else 
+		return NO;
+}
+
+- (void)removeContactFromSuspectedInvisibleContactsSet:(AIListContact *)listContact
+{
+	[suspectedInvisibleContacts removeObject:[listContact internalObjectID]];
+	if (![suspectedInvisibleContacts count]) {
+		[suspectedInvisibleContacts release];
+		suspectedInvisibleContacts = nil;
+	}
+}
+
+- (void)receivedIMChatMessage:(NSDictionary *)messageDict inChat:(AIChat *)chat
+{
+	[super receivedIMChatMessage:messageDict inChat:chat];
+
+	/* If we received a message from an 'offline' contact, note that that contacts is
+	 * probably 'inivisible' for the next several minutes, the timeframe in which we could
+	 * potentially send her a message.
+	 */
+	AIListContact *listContact = [chat listObject];
+	if (listContact && ![listContact online]) {
+		if (!suspectedInvisibleContacts) suspectedInvisibleContacts = [[NSMutableSet alloc] init];
+
+		[suspectedInvisibleContacts addObject:[listContact internalObjectID]];
+		[[self class] cancelPreviousPerformRequestsWithTarget:self
+													 selector:@selector(removeContactFromSuspectedInvisibleContactsSet:)
+													   object:listContact];
+		[self performSelector:@selector(removeContactFromSuspectedInvisibleContactsSet:)
+				   withObject:listContact
+				   afterDelay:(60 * 3)];
+	}
+}
+#endif
 
 @end
 
