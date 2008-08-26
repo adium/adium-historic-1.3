@@ -37,6 +37,7 @@ Jack M.H. Lin
 Paul R. Livesey
 Sam McCandlish
 Nicola Del Monaco
+Yan Morissette
 Jeffrey Melloy
 David Munch
 Roeland Nas
