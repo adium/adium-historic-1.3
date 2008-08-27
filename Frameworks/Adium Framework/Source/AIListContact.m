@@ -228,7 +228,7 @@
 		[displayNameArray setObject:cleanedAlias
 						  withOwner:[self account]
 					  priorityLevel:Low_Priority];
-		
+		AILogWithSignature(@"Display name array is now %@", displayNameArray);
 		//If this causes the object value to change, we need to request a manual update of the display name
 		if (oldDisplayName != [displayNameArray objectValue]) {
 			displayNameChanges = YES;
