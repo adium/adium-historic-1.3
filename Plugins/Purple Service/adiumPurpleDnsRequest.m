@@ -122,9 +122,10 @@ static void host_client_cb(CFHostRef theHost, CFHostInfoType typeInfo,
 - (void)lookupSucceededWithAddresses:(NSArray *)addresses
 {
 	//Success! Build a list of our results and pass it to the resolved callback
-	AILog(@"DNS resolve complete for %s:%d",
-		  purple_dnsquery_get_host(query_data),
-		  purple_dnsquery_get_port(query_data));	
+	AILogWithSignature(@"DNS resolve complete for %@ (%s:%d)",
+					   self,
+					   purple_dnsquery_get_host(query_data),
+					   purple_dnsquery_get_port(query_data));	
 
 	NSEnumerator *enumerator = [addresses objectEnumerator];
 	NSData		 *address;
@@ -154,7 +155,8 @@ static void host_client_cb(CFHostRef theHost, CFHostInfoType typeInfo,
  */
 - (void)lookupFailedWithError:(const CFStreamError *)streamError
 {
-	AILogWithSignature(@"Failed lookup for %s. Error domain %i, error %i",
+	AILogWithSignature(@"Failed lookup for %@ (%s). Error domain %i, error %i",
+					   self,
 					   purple_dnsquery_get_host([self queryData]),
 					   (streamError ? streamError->domain : 0),
 					   (streamError ? streamError->error : 0));
@@ -180,7 +182,8 @@ static void host_client_cb(CFHostRef theHost, CFHostInfoType typeInfo,
 	Boolean				success;
 	CFHostClientContext context =  { /* Version */ 0, /* info */ self, CFRetain, CFRelease, NULL};
 
-	AILogWithSignature(@"Performing DNS resolve: %s:%d",
+	AILogWithSignature(@"Performing DNS resolve on %@: %s:%d",
+					   self
 					   purple_dnsquery_get_host(query_data),
 					   purple_dnsquery_get_port(query_data));
 	
@@ -210,6 +213,8 @@ static void host_client_cb(CFHostRef theHost, CFHostInfoType typeInfo,
  */
 - (void)_finishDnsRequest
 {
+	AILogWithSignature(@"%@", self);
+
 	if (host) {
 		CFHostUnscheduleFromRunLoop(host, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
 		CFHostSetClient(host, /* callback */ NULL, /* context */ NULL);
@@ -230,10 +235,17 @@ static void host_client_cb(CFHostRef theHost, CFHostInfoType typeInfo,
  */
 - (void)cancel
 {
+	AILogWithSignature(@"%@", self);
 	if (!finished_lookup && host)
 		CFHostCancelInfoResolution(host, kCFHostAddresses);
 
 	[self _finishDnsRequest];
+}
+
+- (NSString *)description
+{
+	return [NSString stringWithFormat:@"<%@: %p: host %p, query_data %p, finished %i>",
+			NSStringFromClass([self class]), self, host, query_data, finished];
 }
 
 @end
