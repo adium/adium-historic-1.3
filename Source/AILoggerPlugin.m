@@ -89,7 +89,6 @@ enum {
 - (void)_cleanDirtyLogsThread;
 
 - (void)upgradeLogExtensions;
-- (void)upgradeLogPermissions;
 - (void)reimportLogsToSpotlightIfNeeded;
 
 - (NSString *)keyForChat:(AIChat *)chat;
@@ -188,8 +187,6 @@ Class LogViewerWindowControllerClass = NULL;
 	[self initLogIndexing];
 	
 	[self upgradeLogExtensions];
-	[self upgradeLogPermissions];
-	
 	[self reimportLogsToSpotlightIfNeeded];
 
 	[[adium notificationCenter] addObserver:self
@@ -760,101 +757,6 @@ int sortPaths(NSString *path1, NSString *path2, void *context)
 											 forKey:@"Log Extensions Updated"
 											  group:PREF_GROUP_LOGGING];
 	}
-}
-
-- (void)upgradeLogPermissions
-{
-	if ([[adium.preferenceController preferenceForKey:@"Log Permissions Updated" group:PREF_GROUP_LOGGING] boolValue])
-		return;
-	
-	/* This is based off of -upgradeLogExtensions. Refer to that. */
-	
-	NSFileManager	*defaultManager = [NSFileManager defaultManager];
-	NSArray			*accountFolders = [defaultManager directoryContentsAtPath:logBasePath];
-	NSString		*accountFolderName;
-	
-	NSMutableSet	*pathsToContactFolders = [NSMutableSet set];
-	for (accountFolderName in accountFolders) {
-		NSString		*contactBasePath = [logBasePath stringByAppendingPathComponent:accountFolderName];
-		NSArray			*contactFolders = [defaultManager directoryContentsAtPath:contactBasePath];
-		
-		// Set permissions to prohibit access from other users
-		[defaultManager changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0700UL]
-																		 forKey:NSFilePosixPermissions]
-									  atPath:contactBasePath];
-		
-		NSEnumerator	*contactFolderEnumerator = [contactFolders objectEnumerator];
-		NSString		*contactFolderName;
-		
-		while ((contactFolderName = [contactFolderEnumerator nextObject])) {
-			NSString	*contactFolderPath = [contactBasePath stringByAppendingPathComponent:contactFolderName];
-			
-			// Set permissions to prohibit access from other users
-			[defaultManager changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0700UL]
-																			 forKey:NSFilePosixPermissions]
-										  atPath:contactFolderPath];
-			
-			// We'll traverse the contact directories themselves next
-			[pathsToContactFolders addObject:contactFolderPath];
-		}
-	}
-	
-	NSUInteger		contactsToProcess = [pathsToContactFolders count];
-	NSUInteger		processed = 0;
-	
-	if (contactsToProcess) {
-		AILogFileUpgradeWindowController *upgradeWindowController;
-		
-		upgradeWindowController = [[AILogFileUpgradeWindowController alloc] initWithWindowNibName:@"LogFileUpgrade"];
-		[[upgradeWindowController window] makeKeyAndOrderFront:nil];
-		
-		NSString		*pathToContactFolder;
-		for (pathToContactFolder in pathsToContactFolders) {
-			NSDirectoryEnumerator *enumerator = [defaultManager enumeratorAtPath:pathToContactFolder];
-			NSString	*file;
-			
-			while ((file = [enumerator nextObject])) {
-				NSString	*fullFile = [pathToContactFolder stringByAppendingPathComponent:file];
-				BOOL		isDir;
-				
-				// Some chat logs are bundles
-				[defaultManager fileExistsAtPath:fullFile isDirectory:&isDir];
-				
-				if (!isDir) {
-					[defaultManager changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0600UL]
-																					 forKey:NSFilePosixPermissions]
-												  atPath:fullFile];
-					
-				} else {
-					[defaultManager changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0700UL]
-																					 forKey:NSFilePosixPermissions]
-												  atPath:fullFile];
-					
-					// We have to enumerate this directory, too, only not as deep
-					NSDirectoryEnumerator	*bundleEnumerator = [defaultManager enumeratorAtPath:fullFile];
-					NSString				*contentFile;
-					
-					while ((contentFile = [bundleEnumerator nextObject])) {
-						[defaultManager changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:0600UL]
-																						 forKey:NSFilePosixPermissions]
-													  atPath:contentFile];
-					}
-					
-				}
-				
-			}
-			
-			processed++;
-			[upgradeWindowController setProgress:(processed*100.0)/contactsToProcess];
-		}
-		
-		[upgradeWindowController close];
-		[upgradeWindowController release];
-	}
-	
-	[adium.preferenceController setPreference:[NSNumber numberWithBool:YES]
-	 forKey:@"Log Permissions Updated"
-	 group:PREF_GROUP_LOGGING];
 }
 
 - (BOOL)fileManager:(NSFileManager *)manager shouldProceedAfterError:(NSDictionary *)errorInfo
