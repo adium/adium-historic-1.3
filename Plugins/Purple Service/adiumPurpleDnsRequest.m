@@ -183,7 +183,7 @@ static void host_client_cb(CFHostRef theHost, CFHostInfoType typeInfo,
 	CFHostClientContext context =  { /* Version */ 0, /* info */ self, CFRetain, CFRelease, NULL};
 
 	AILogWithSignature(@"Performing DNS resolve on %@: %s:%d",
-					   self
+					   self,
 					   purple_dnsquery_get_host(query_data),
 					   purple_dnsquery_get_port(query_data));
 	
@@ -245,7 +245,7 @@ static void host_client_cb(CFHostRef theHost, CFHostInfoType typeInfo,
 - (NSString *)description
 {
 	return [NSString stringWithFormat:@"<%@: %p: host %p, query_data %p, finished %i>",
-			NSStringFromClass([self class]), self, host, query_data, finished];
+			NSStringFromClass([self class]), self, host, query_data, finished_lookup];
 }
 
 @end
