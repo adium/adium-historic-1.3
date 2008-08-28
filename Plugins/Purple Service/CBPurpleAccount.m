@@ -2332,7 +2332,7 @@ static void prompt_host_ok_cb(CBPurpleAccount *self, const char *host) {
  * After setting it with purple, it sets it within Adium; if this is not called, the image will
  * show up neither locally nor remotely.
  */
-- (void)setAccountUserImage:(NSImage *)image withData:(NSData *)originalData;
+- (void)setAccountUserImage:(NSImage *)image withData:(NSData *)originalData
 {
 	if (account) {
 		NSData		*imageData = originalData;
