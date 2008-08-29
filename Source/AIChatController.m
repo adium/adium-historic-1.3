@@ -328,12 +328,12 @@
 		chat = [AIChat chatForAccount:account];
 		[chat addObject:targetContact];
 		[openChats addObject:chat];
-		AILog(@"chatWithContact: Added <<%@>> [%@]",chat,openChats);
+		AILogWithSignature(@"Added <<%@>> [%@]",chat,openChats);
 
 		//Inform the account of its creation
 		if (![[targetContact account] openChat:chat]) {
 			[openChats removeObject:chat];
-			AILog(@"chatWithContact: Immediately removed <<%@>> [%@]",chat,openChats);
+			AILogWithSignature(@"Immediately removed <<%@>> [%@]",chat,openChats);
 			chat = nil;
 		}
 	}
