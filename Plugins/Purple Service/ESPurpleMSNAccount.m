@@ -510,7 +510,12 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 	if (prpl_info && prpl_info->status_text && buddy) {
 		const char *message = prpl_info->status_text(buddy);
 
-		return (message ? [AIHTMLDecoder decodeHTML:[NSString stringWithUTF8String:message]] : nil);
+		PurplePresence *presence = purple_buddy_get_presence(buddy);
+		PurpleStatus *status = purple_presence_get_active_status(presence);
+		if (purple_status_is_online(status))
+			return (message ? [AIHTMLDecoder decodeHTML:[NSString stringWithUTF8String:message]] : nil);
+		else
+			return nil;
 
 	} else {
 		return nil;
