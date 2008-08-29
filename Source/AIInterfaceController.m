@@ -1941,7 +1941,7 @@ withAttributedDescription:[[[NSAttributedString alloc] initWithString:inDesc
 
 -(void)toggleUserlist:(id)sender
 {
-	[[adium notificationCenter] postNotificationName:@"toggleUserlist" object:nil];
+	[[[[self activeChat] chatContainer] chatViewController] toggleUserList]; 
 }	
 
 
