@@ -503,23 +503,24 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
  */
 - (NSAttributedString *)statusMessageForPurpleBuddy:(PurpleBuddy *)buddy
 {
+	NSAttributedString		  *messageAttributedString = nil;
 	PurplePlugin			  *prpl;
 	PurplePluginProtocolInfo  *prpl_info = ((prpl = purple_find_prpl(purple_account_get_protocol_id(purple_buddy_get_account(buddy)))) ?
 											PURPLE_PLUGIN_PROTOCOL_INFO(prpl) :
 											NULL);	
-	if (prpl_info && prpl_info->status_text && buddy) {
-		const char *message = prpl_info->status_text(buddy);
 
+	if (prpl_info && prpl_info->status_text && buddy) {
 		PurplePresence *presence = purple_buddy_get_presence(buddy);
 		PurpleStatus *status = purple_presence_get_active_status(presence);
-		if (purple_status_is_online(status))
-			return (message ? [AIHTMLDecoder decodeHTML:[NSString stringWithUTF8String:message]] : nil);
-		else
-			return nil;
-
-	} else {
-		return nil;
+		if (purple_status_is_online(status)) {
+			char *message = prpl_info->status_text(buddy);
+			if (message)
+				messageAttributedString = [AIHTMLDecoder decodeHTML:[NSString stringWithUTF8String:message]];
+			g_free(message);
+		}
 	}
+
+	return messageAttributedString;
 }
 #endif
 
