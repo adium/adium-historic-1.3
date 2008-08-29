@@ -94,6 +94,7 @@
 			 */
 //			CFStringRef		logPath = CFURLCopyFileSystemPath(url, kCFURLPOSIXPathStyle);
 			NSString *logPath = [(NSURL *)url path];
+			if (!logPath) AILogWithSignature(@"Could not get path for %@", url);
 			NSArray	 *pathComponents = [(NSString *)logPath pathComponents];
 
 			/* Handle chatlogs-as-bundles, which have an xml file inside our target .chatlog path */
