@@ -26,8 +26,6 @@
 #include "pecan_config.h"
 #include "pecan_printf.h" /** @todo remove this */
 
-#define MSN_BUF_LEN 8192
-
 #define USEROPT_MSNSERVER 3
 #define MSN_SERVER "messenger.hotmail.com"
 #define MSN_HTTPCONN_SERVER "gateway.messenger.hotmail.com"
@@ -82,7 +80,7 @@ typedef enum
 
 } MsnClientVerId;
 
-#define MSN_CLIENT_ID_VERSION      MSN_CLIENT_VER_7_0
+#define MSN_CLIENT_ID_VERSION      MSN_CLIENT_VER_7_5
 #define MSN_CLIENT_ID_RESERVED_1   0x00
 #define MSN_CLIENT_ID_RESERVED_2   0x00
 #define MSN_CLIENT_ID_CAPABILITIES MSN_CLIENT_CAP_BASE
