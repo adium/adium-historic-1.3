@@ -25,6 +25,8 @@
 
 #include <glib.h>
 
+gchar *pecan_url_decode (const gchar *url);
+
 /**
  * Parses the MSN message formatting into a format compatible with Purple.
  *
@@ -62,5 +64,7 @@ void g_hash_table_remove_all (GHashTable *hash_table);
 gpointer g_hash_table_peek_first (GHashTable *hash_table);
 gboolean g_ascii_strcase_equal (gconstpointer v1, gconstpointer v2);
 guint g_ascii_strcase_hash (gconstpointer v);
+
+gchar *pecan_get_xml_field (const gchar *tag, const gchar *start, const gchar *end);
 
 #endif /* PECAN_UTIL_H */

@@ -31,6 +31,8 @@
 
 #include "io/pecan_node.h"
 
+#include "pecan_oim.h"
+
 struct MsnNotification;
 struct MsnNexus;
 struct MsnSync;
@@ -82,8 +84,14 @@ struct MsnSession
         gchar *mail_url;
         gulong mail_url_timestamp;
     } passport_info;
+    struct
+    {
+        gchar *t;
+        gchar *p;
+    } passport_cookie;
 
     guint inbox_unread_count; /* The number of unread e-mails on the inbox. */
+    PecanOimSession *oim_session;
 };
 
 #endif /* MSN_SESSION_PRIVATE_H */
