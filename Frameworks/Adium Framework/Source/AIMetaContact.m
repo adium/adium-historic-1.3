@@ -297,8 +297,8 @@ int containedContactSort(AIListContact *objectA, AIListContact *objectB, void *c
 		[self _updateAllPropertiesForObject:inObject];
 
 		if ([inObject isKindOfClass:[AIListContact class]] && [(AIListContact *)inObject remoteGroupName]) {
-			//Force an immediate update of our listContacts list, which will also update our visible count
-			[self listContacts];
+			//Force an immediate update of our visibileListContacts list, which will also update our visible count
+			[self visibleListContacts];
 		}
 
 		success = YES;
