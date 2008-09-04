@@ -49,7 +49,8 @@
 	[facebookUID release]; facebookUID = nil;
 	[account release]; account = nil;
 	
-	//XXX Cancel current connection
+	[loveConnection cancel];
+	[loveConnection release]; loveConnection = nil;
 }
 
 /*!
@@ -58,6 +59,10 @@
 - (void)receivedMessage:(NSDictionary *)messageDict
 {
 	NSString			*fromUID = [messageDict objectForKey:@"from"];
+	
+	//Ignore non-textual messages, like facebook notifications
+	if (!fromUID) return;
+	
 	//fromUID may be a number rather than a string
 	if ([fromUID isKindOfClass:[NSNumber class]]) fromUID = [(NSNumber *)fromUID stringValue];
 
