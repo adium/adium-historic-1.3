@@ -72,7 +72,7 @@
 	AIListContact		*listContact = [account contactWithUID:fromUID];
 	AIChat				*chat = [[adium chatController] chatWithContact:listContact];
 	NSDictionary		*messageTextDict = [messageDict objectForKey:@"msg"];
-	if (messageTextDict) {
+	if (messageTextDict && [messageTextDict isKindOfClass:[NSDictionary class]]) {
 		NSString			*text = [[messageTextDict objectForKey:@"text"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 		NSString			*timeString = [messageTextDict objectForKey:@"time"];
 		AIContentMessage	*messageObject;
@@ -88,7 +88,7 @@
 	}
 	
 	NSDictionary *typingDict = [messageDict objectForKey:@"typ"];
-	if (typingDict) {
+	if (typingDict && [typingDict isKindOfClass:[NSDictionary class]]) {
 		if ([[typingDict objectForKey:@"st"] isEqualToString:@"1"]) {
 			[chat setValue:[NSNumber numberWithInteger:AITyping]
 			   forProperty:KEY_TYPING
@@ -145,23 +145,30 @@
 
 	AILogWithSignature(@"Received %@", reply)
 
-	NSString *command = [reply objectForKey:@"t"];
-	if ([command isEqualToString:@"refresh"]) {
-		//We've been told to update to a new sequence number
-		sequenceNumber = [[reply objectForKey:@"seq"] integerValue];
-
-	} else if ([command isEqualToString:@"continue"]) {
-		//Just keep waiting; do nothing besides reconfiguring our connection monitoring
-
-	} else if ([command isEqualToString:@"msg"]) {
-		//We got a message! (It's an array, so we might have gotten more than one at once, actually)
-		NSEnumerator *enumerator = [[reply objectForKey:@"ms"] objectEnumerator];
-		NSDictionary *messageDict;
-		while ((messageDict = [enumerator nextObject])) {
-			[self receivedMessage:messageDict];
+	if ([reply isKindOfClass:[NSDictionary class]]) {
+		NSString *command = [reply objectForKey:@"t"];
+		if ([command isEqualToString:@"refresh"]) {
+			//We've been told to update to a new sequence number
+			id seq = [reply objectForKey:@"seq"];
+			if ([seq respondsToSelector:@selector(integerValue)])
+				sequenceNumber = [seq integerValue];
+			
+		} else if ([command isEqualToString:@"continue"]) {
+			//Just keep waiting; do nothing besides reconfiguring our connection monitoring
+			
+		} else if ([command isEqualToString:@"msg"]) {
+			//We got a message! (It's an array, so we might have gotten more than one at once, actually)
+			NSEnumerator *enumerator = [[reply objectForKey:@"ms"] objectEnumerator];
+			NSDictionary *messageDict;
+			while ((messageDict = [enumerator nextObject])) {
+				if ([messageDict isKindOfClass:[NSDictionary class]])
+					[self receivedMessage:messageDict];
+				else
+					AILogWithSignature(@"%@ in %@ was not a dictionary!", messageDict, reply);
+			}
 		}
-
-		sequenceNumber++;
+	} else {
+		AILogWithSignature(@"%@ was not a dictionary!", reply);
 	}
 
 	[receivedString release];
