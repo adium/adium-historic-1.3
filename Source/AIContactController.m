@@ -615,20 +615,6 @@
 	return useOfflineGroup;
 }
 
-- (void)setUseOfflineGroup:(BOOL)inFlag
-{
-	if (inFlag != useOfflineGroup) {
-		useOfflineGroup = inFlag;
-		
-		if (useOfflineGroup) {
-			[self registerListObjectObserver:self];	
-		} else {
-			[self updateAllListObjectsForObserver:self];
-			[self unregisterListObjectObserver:self];	
-		}
-	}
-}
-
 - (AIListGroup *)offlineGroup
 {
 	return [self groupWithUID:AILocalizedString(@"Offline", "Name of offline group")];
@@ -1171,9 +1157,31 @@ int contactDisplayNameSort(AIListObject *objectA, AIListObject *objectB, void *c
 - (void)preferencesChangedForGroup:(NSString *)group key:(NSString *)key
 							object:(AIListObject *)object preferenceDict:(NSDictionary *)prefDict firstTime:(BOOL)firstTime
 {
-	[self setUseOfflineGroup:((![[prefDict objectForKey:KEY_HIDE_CONTACTS] boolValue] ||
-							   [[prefDict objectForKey:KEY_SHOW_OFFLINE_CONTACTS] boolValue]) &&
-							  [[prefDict objectForKey:KEY_USE_OFFLINE_GROUP] boolValue])];
+	if (!key ||
+		[key isEqualToString:KEY_HIDE_CONTACTS] ||
+		[key isEqualToString:KEY_SHOW_OFFLINE_CONTACTS] ||
+		[key isEqualToString:KEY_USE_OFFLINE_GROUP] ||
+		[key isEqualToString:KEY_HIDE_CONTACT_LIST_GROUPS]) {
+
+		BOOL shouldUseOfflineGroup = ((![[prefDict objectForKey:KEY_HIDE_CONTACTS] boolValue] ||
+									   [[prefDict objectForKey:KEY_SHOW_OFFLINE_CONTACTS] boolValue]) &&
+									  [[prefDict objectForKey:KEY_USE_OFFLINE_GROUP] boolValue]);
+		BOOL newlyRegistered = NO;
+		if (shouldUseOfflineGroup != useOfflineGroup) {
+			useOfflineGroup = shouldUseOfflineGroup;
+			
+			if (useOfflineGroup) {
+				[contactPropertiesObserverManager registerListObjectObserver:self];
+				newlyRegistered = YES;
+			} else {
+				[contactPropertiesObserverManager unregisterListObjectObserver:self];	
+			}
+		}
+		
+
+		if (!newlyRegistered && key)
+			[contactPropertiesObserverManager updateAllListObjectsForObserver:self];
+	}
 }
 
 /*!
@@ -1187,7 +1195,7 @@ int contactDisplayNameSort(AIListObject *objectA, AIListObject *objectB, void *c
 		if ([inObject isKindOfClass:[AIListContact class]]) {			
 			//If this contact is not its own parent contact, don't bother since we'll get an update for the parent if appropriate
 			if (inObject == [(AIListContact *)inObject parentContact]) {
-				if (useOfflineGroup) {
+				if (useOfflineGroup && useContactListGroups) {
 					AIListObject *containingObject = [inObject containingObject];
 					
 					if ([inObject online] &&
