@@ -1232,6 +1232,7 @@
  */
 - (void)removeAllContacts
 {
+	NSArray *myContacts = [self contacts];
 	[[adium contactController] delayListObjectNotifications];
 	
 	/* Clear status flags on all contacts for this account, and set their remote group to nil.
@@ -1241,15 +1242,20 @@
 	NSEnumerator	*enumerator;
 	AIListContact	*listContact;
 
-	enumerator = [[self contacts] objectEnumerator];
+	enumerator = [myContacts objectEnumerator];
 	while ((listContact = [enumerator nextObject])) {
 		[listContact setRemoteGroupName:nil];
 		[self removePropetyValuesFromContact:listContact silently:YES];
-		if (![[adium chatController] existingChatWithContact:[listContact parentContact]])
-			[[adium contactController] account:self didStopTrackingContact:listContact];
 	}
 	
 	[[adium contactController] endListObjectNotificationsDelay];
+	
+	//Stop tracking only after we've notified
+	enumerator = [myContacts objectEnumerator];
+	while ((listContact = [enumerator nextObject])) {
+		if (![[adium chatController] existingChatWithContact:[listContact parentContact]])
+			[[adium contactController] account:self didStopTrackingContact:listContact];
+	}
 }
 
 /*!
