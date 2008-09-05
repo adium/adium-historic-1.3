@@ -166,6 +166,8 @@
 				else
 					AILogWithSignature(@"%@ in %@ was not a dictionary!", messageDict, reply);
 			}
+			
+			sequenceNumber++;
 		}
 	} else {
 		AILogWithSignature(@"%@ was not a dictionary!", reply);
