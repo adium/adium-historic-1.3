@@ -178,6 +178,7 @@
 		visible = inVisible;
 		
 		//Let our containing group know about the visibility change
+		AILogWithSignature(@"%@: %i. Telling %@", self, visible, containingObject);
 		[containingObject visibilityOfContainedObject:self changedTo:inVisible];			
 	}
 }

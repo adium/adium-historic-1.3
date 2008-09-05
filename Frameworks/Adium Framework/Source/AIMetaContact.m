@@ -1244,6 +1244,8 @@ int containedContactSort(AIListContact *objectA, AIListContact *objectB, void *c
 {
 	[_visibleListContacts release];
 	_visibleListContacts = nil;
+	
+	AILogWithSignature(@"%@'s %@ changed to %i", self, inObject, inVisible);
 }
 
 #pragma mark Debugging
