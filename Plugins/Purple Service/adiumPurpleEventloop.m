@@ -437,7 +437,9 @@ PurpleEventLoopUiOps *adium_purple_eventloop_get_ui_ops(void)
 	return &adiumEventLoopUiOps;
 }
 
-#if USE_PECAN
+#if 0
+/* Enable a glib run loop adapter; this was used previously for msn-pecan and might be useful in the future */
+
 static void glib_runloop_iterator(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
 	//Iterate on the glib loop a single time without blocking
 	g_main_context_iteration(/* context */ NULL, /* may_block */ FALSE);
