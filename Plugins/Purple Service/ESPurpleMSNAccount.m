@@ -16,10 +16,8 @@
 
 #import "ESPurpleMSNAccount.h"
 
-#if !USE_PECAN
 #import <libpurple/state.h>
 #import <libpurple/msn.h>
-#endif
 
 #import <Adium/AIAccountControllerProtocol.h>
 #import <Adium/AIContactControllerProtocol.h>
@@ -43,10 +41,6 @@
 
 #define DEFAULT_MSN_PASSPORT_DOMAIN				@"@hotmail.com"
 #define SECONDS_BETWEEN_FRIENDLY_NAME_CHANGES	10
-
-#if USE_PECAN
-extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
-#endif
 
 @interface ESPurpleMSNAccount (PRIVATE)
 - (void)updateFriendlyNameAfterConnect;
@@ -86,18 +80,13 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 - (void)dealloc {
 	[lastFriendlyNameChange release];
 	[queuedFriendlyName release];
-	[suspectedInvisibleContacts release];
 
 	[super dealloc];
 }
 
 - (const char*)protocolPlugin
 {
-#if USE_PECAN    
-	return PRPL_MSN;
-#else
 	return "prpl-msn";
-#endif
 }
 
 - (NSString *)encodedAttributedStringForSendingContentMessage:(AIContentMessage *)inContentMessage
@@ -158,7 +147,6 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 {
 	switch (step)
 	{
-#if NEW_MSN
 		case 0:
 			return AILocalizedString(@"Connecting",nil);
 			break;
@@ -186,32 +174,6 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 		case 8:
 			return AILocalizedString(@"Retrieving buddy list",nil);
 			break;
-#else
-		case 0:
-			return AILocalizedString(@"Connecting",nil);
-			break;
-		case 1:
-			return AILocalizedString(@"Connecting",nil);
-			break;
-		case 2:
-			return AILocalizedString(@"Syncing with server",nil);
-			break;			
-		case 3:
-			return AILocalizedString(@"Requesting to send password",nil);
-			break;
-		case 4:
-			return AILocalizedString(@"Syncing with server",nil);
-			break;
-		case 5:
-			return AILocalizedString(@"Requesting to send password",nil);
-			break;
-		case 6:
-			return AILocalizedString(@"Password sent",nil);
-			break;
-		case 7:
-			return AILocalizedString(@"Retrieving buddy list",nil);
-			break;
-#endif
 	}
 	return nil;
 }
@@ -385,11 +347,7 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 
 			
 			if (friendlyNameUTF8String && friendlyNameUTF8String[0])
-#if USE_PECAN			
-				msn_set_friendly_name(purple_account_get_connection(account), friendlyNameUTF8String);
-#else
 				msn_act_id(purple_account_get_connection(account), friendlyNameUTF8String);
-#endif
 
 			[lastFriendlyNameChange release];
 			lastFriendlyNameChange = [now retain];
@@ -497,33 +455,6 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 	return statusName;
 }
 
-#if USE_PECAN
-/*!
- * @brief Status message for a contact
- */
-- (NSAttributedString *)statusMessageForPurpleBuddy:(PurpleBuddy *)buddy
-{
-	NSAttributedString		  *messageAttributedString = nil;
-	PurplePlugin			  *prpl;
-	PurplePluginProtocolInfo  *prpl_info = ((prpl = purple_find_prpl(purple_account_get_protocol_id(purple_buddy_get_account(buddy)))) ?
-											PURPLE_PLUGIN_PROTOCOL_INFO(prpl) :
-											NULL);	
-
-	if (prpl_info && prpl_info->status_text && buddy) {
-		PurplePresence *presence = purple_buddy_get_presence(buddy);
-		PurpleStatus *status = purple_presence_get_active_status(presence);
-		if (purple_status_is_online(status)) {
-			char *message = prpl_info->status_text(buddy);
-			if (message)
-				messageAttributedString = [AIHTMLDecoder decodeHTML:[NSString stringWithUTF8String:message]];
-			g_free(message);
-		}
-	}
-
-	return messageAttributedString;
-}
-#endif
-
 /*!
  * @brief Return the purple status ID to be used for a status
  *
@@ -615,56 +546,6 @@ extern void msn_set_friendly_name(PurpleConnection *gc, const char *entry);
 
 	return [super titleForAccountActionMenuLabel:label];
 }
-
-#pragma mark Messaging invisible contacts hackery
-
-#if USE_PECAN
-
-/*!
- * @brief Is it possible that a contact who appears offline is actually invisible and can be messaged?
- *
- * MSNp12 can't send messages to invisible contacts from a dead start, but it can reply if an invisible
- * contact initiates the conversation.
- */
-- (BOOL)maySendMessageToInvisibleContact:(AIListContact *)inContact
-{
-	if ([suspectedInvisibleContacts containsObject:[inContact internalObjectID]])
-		return YES;
-	else 
-		return NO;
-}
-
-- (void)removeContactFromSuspectedInvisibleContactsSet:(AIListContact *)listContact
-{
-	[suspectedInvisibleContacts removeObject:[listContact internalObjectID]];
-	if (![suspectedInvisibleContacts count]) {
-		[suspectedInvisibleContacts release];
-		suspectedInvisibleContacts = nil;
-	}
-}
-
-- (void)receivedIMChatMessage:(NSDictionary *)messageDict inChat:(AIChat *)chat
-{
-	[super receivedIMChatMessage:messageDict inChat:chat];
-
-	/* If we received a message from an 'offline' contact, note that that contacts is
-	 * probably 'inivisible' for the next several minutes, the timeframe in which we could
-	 * potentially send her a message.
-	 */
-	AIListContact *listContact = [chat listObject];
-	if (listContact && ![listContact online]) {
-		if (!suspectedInvisibleContacts) suspectedInvisibleContacts = [[NSMutableSet alloc] init];
-
-		[suspectedInvisibleContacts addObject:[listContact internalObjectID]];
-		[[self class] cancelPreviousPerformRequestsWithTarget:self
-													 selector:@selector(removeContactFromSuspectedInvisibleContactsSet:)
-													   object:listContact];
-		[self performSelector:@selector(removeContactFromSuspectedInvisibleContactsSet:)
-				   withObject:listContact
-				   afterDelay:(60 * 3)];
-	}
-}
-#endif
 
 @end
 

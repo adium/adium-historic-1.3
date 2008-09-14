@@ -18,6 +18,3 @@
 
 PurpleEventLoopUiOps *adium_purple_eventloop_get_ui_ops(void);
 
-#if USE_PECAN
-void adium_purple_eventloop_enable_glib_runloop(void);
-#endif
