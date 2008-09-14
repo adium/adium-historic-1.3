@@ -389,11 +389,6 @@
 	[super gotFilteredDisplayName:attributedDisplayName];
 }
 
-- (void)updateMobileStatus:(AIListContact *)theContact withData:(BOOL)isMobile
-{
-	//No-op
-}
-
 - (BOOL)shouldIncludeNowPlayingInformationInAllStatuses
 {
 	return [[self preferenceForKey:KEY_BROADCAST_MUSIC_INFO group:GROUP_ACCOUNT_STATUS] boolValue];
