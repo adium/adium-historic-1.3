@@ -79,7 +79,7 @@
 		//Refresh visibility of all contacts
 		[[adium contactController] updateAllListObjectsForObserver:self];
 		
-		//Resort the entire list, forcing the visibility changes to hae an immediate effect (we return nil in the 
+		//Resort the entire list, forcing the visibility changes to have an immediate effect (we return nil in the 
 		//updateListObject: method call, so the contact controller doesn't know we changed anything)
 		[[adium contactController] sortContactList];
 	}
