@@ -312,7 +312,7 @@
 
 		[[adium contactController] removeDetachedContactList:(AIListGroup *)[windowController contactList]];
 		
-		[[adium notificationCenter] postNotificationName:@"Contact_ListChanged"
+		[[adium notificationCenter] postNotificationName:Contact_ListChanged
 												  object:[[adium contactController] contactList] 
 												userInfo:nil];
 			
@@ -442,7 +442,7 @@
 	[listGroup moveGroupTo:destinationGroup];
 	
 	// Update contact list
-	[[adium notificationCenter] postNotificationName:@"Contact_ListChanged"
+	[[adium notificationCenter] postNotificationName:Contact_ListChanged
 											  object:destinationGroup
 											userInfo:nil];
 	
@@ -452,7 +452,7 @@
 												  object:sourceGroup
 												userInfo:nil];
 	} else {
-		[[adium notificationCenter] postNotificationName:@"Contact_ListChanged"
+		[[adium notificationCenter] postNotificationName:Contact_ListChanged
 												  object:sourceGroup
 												userInfo:nil]; 
 	}
