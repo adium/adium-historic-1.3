@@ -358,7 +358,7 @@
 			[localGroup addObject:containingObject];
 			
 			[self _listChangedGroup:localGroup object:containingObject];
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"Contact_ListChanged"
+			[[NSNotificationCenter defaultCenter] postNotificationName:Contact_ListChanged
 																object:[localGroup containingObject]
 															  userInfo:nil];
 			//NSLog(@"listObjectRemoteGroupingChanged: %@ is in %@, which was moved to %@",inContact,containingObject,localGroup);
