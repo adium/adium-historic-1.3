@@ -1247,7 +1247,7 @@ static BOOL AIScreenRectEdgeAdjacentToAnyOtherScreen(NSRectEdge edge, NSScreen *
 		[[adium notificationCenter] postNotificationName:DetachedContactListIsEmpty
 												  object:from
 												userInfo:nil];
-		[[adium notificationCenter] postNotificationName:@"Contact_ListChanged"
+		[[adium notificationCenter] postNotificationName:Contact_ListChanged
 												  object:to
 												userInfo:nil]; 
 	}

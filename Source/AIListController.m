@@ -735,7 +735,7 @@
 			if (item != [[adium contactController] offlineGroup]) {
 				[[adium contactController] moveListObjects:dragItems intoObject:item index:index];
 				
-				[[adium notificationCenter] postNotificationName:@"Contact_ListChanged"
+				[[adium notificationCenter] postNotificationName:Contact_ListChanged
 														  object:item
 														userInfo:nil];
 			} else {
