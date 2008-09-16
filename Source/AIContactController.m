@@ -849,6 +849,10 @@
 			[(AIMetaContact *)localGroup addObject:metaContact];
 			[self _listChangedGroup:localGroup object:metaContact];
 		}
+
+		//Ensure the metacontact ends up in the appropriate group
+		if (![metaContact containingObject] || ([metaContact containingObject] == offlineGroup))
+			[metaContact restoreGrouping];
 	}
 	
 	return success;
