@@ -13,7 +13,6 @@ fi
 echo "Using Pidgin source from: $PIDGIN_SOURCE"
 
 # Read in our parameters
-MSN=msn_pecan
 USER_REGENERATE=FALSE
 ARCHES=(ppc i386)
 while [ $# -gt 0 ] ; do
@@ -21,15 +20,6 @@ while [ $# -gt 0 ] ; do
 		--regenerate)
 			USER_REGENERATE=TRUE
 			shift 1 
-			;;
-		--msn-pecan)
-			# Note that msn-pecan needs the --enable-msnp14 flag
-			MSN=msn_pecan
-			shift 1
-			;;
-		--msn)
-			MSN=msn
-			shift 1
 			;;
 		--ppc)
 			ARCHES=(ppc)
@@ -48,7 +38,7 @@ done
 echo purple_make.sh: Compiling ${ARCHES[@]}
 
 DEBUG_SYMBOLS=TRUE
-PROTOCOLS="bonjour gg irc jabber $MSN myspace novell oscar qq sametime simple yahoo zephyr"
+PROTOCOLS="bonjour gg irc jabber msn myspace novell oscar qq sametime simple yahoo zephyr"
 
 ###
 # Patches bringing in forward changes from libpurple:
@@ -74,6 +64,8 @@ PROTOCOLS="bonjour gg irc jabber $MSN myspace novell oscar qq sametime simple ya
 # 		poor interaction with cyrus-sasl. Note that this means we can connect
 # 		to some servers iChat can't ;)
 # libpurple_jabber_roster_debug.diff is temporary debugging for #8834
+#
+# libpurple_oscar_sendfile_debug.diff adds debug logging for #10587
 ###
 LIBPURPLE_PATCHES=("$PATCHDIR/libpurple_makefile_linkage_hacks.diff" \
 					"$PATCHDIR/libpurple_disable_last_seen_tracking.diff" \
@@ -84,24 +76,15 @@ LIBPURPLE_PATCHES=("$PATCHDIR/libpurple_makefile_linkage_hacks.diff" \
 					"$PATCHDIR/libpurple_zephyr_fix_krb4_flags.diff" \
 					"$PATCHDIR/libpurple_jabber_use_builtin_digestmd5.diff" \
 					"$PATCHDIR/libpurple_jabber_fallback_to_auth_old_after_gssapi_only_fails.diff" \
-					"$PATCHDIR/libpurple_jabber_roster_debug.diff")
-
-##
-# msn-pecan specific patches
-##
-if [ x"$MSN" = x"msn_pecan" ] ; then
-	LIBPURPLE_PATCHES=( \
-			${LIBPURPLE_PATCHES[@]} \
-			"$PATCHDIR/libpurple_static_for_msn_pecan.diff" \
-		)
-fi
+					"$PATCHDIR/libpurple_jabber_roster_debug.diff" \
+					"$PATCHDIR/libpurple_oscar_sendfile_debug.diff")
 
 pushd $PIDGIN_SOURCE > /dev/null 2>&1
 	for patch in ${LIBPURPLE_PATCHES[@]} ; do
 		echo "Applying $patch"
 		# telekinetic-patch will let us maintain timestamps,
 		# for incremental building
-		$PATCHDIR/telekinetic-patch.py --forward -p0 < $patch || true
+		python $PATCHDIR/telekinetic-patch.py --forward -p0 < $patch || true
 	done
 
 popd > /dev/null 2>&1
@@ -154,9 +137,6 @@ for ARCH in ${ARCHES[@]} ; do
 	
 	#Note that whether we use openssl or cdsa the same underlying workarounds (as seen in jabber.c, only usage at present 12/07) are needed
 	export CFLAGS="$BASE_CFLAGS -arch $ARCH -I$TARGET_DIR/include -I$SDK_ROOT/usr/include/kerberosIV -DHAVE_SSL -DHAVE_OPENSSL -fno-common "
-	if [ x"$MSN" = x"msn_pecan" ] ; then
-		export CFLAGS="$CFLAGS -DLIBPURPLE_NEW_API "
-	fi
 	
 	if [ "$DEBUG_SYMBOLS" = "TRUE" ] ; then
 		export CFLAGS="$CFLAGS -gdwarf-2 -g3" 
@@ -222,7 +202,6 @@ for ARCH in ${ARCHES[@]} ; do
 				--with-krb4 \
 				--enable-cyrus-sasl \
 				--prefix=$TARGET_DIR \
-				--enable-msnp14 \
 				--with-static-prpls="$PROTOCOLS" --disable-plugins \
 				--host=$HOST \
 				--disable-gstreamer \
@@ -261,7 +240,7 @@ for ARCH in ${ARCHES[@]} ; do
 		$PIDGIN_SOURCE/libpurple/protocols/oscar/peer.h \
 		$PIDGIN_SOURCE/libpurple/cmds.h \
 		$PIDGIN_SOURCE/libpurple/internal.h \
-		$PIDGIN_SOURCE/libpurple/protocols/$MSN/*.h \
+		$PIDGIN_SOURCE/libpurple/protocols/msn/*.h \
 		$PIDGIN_SOURCE/libpurple/protocols/yahoo/*.h \
 		$PIDGIN_SOURCE/libpurple/protocols/gg/buddylist.h \
 		$PIDGIN_SOURCE/libpurple/protocols/gg/gg.h \
