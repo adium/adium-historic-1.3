@@ -430,27 +430,30 @@ static NSArray *validSenderColors;
 	contentOutHTML = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"Content" ofType:@"html" inDirectory:@"Outgoing"]] retain];
 	nextContentOutHTML = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"NextContent" ofType:@"html" inDirectory:@"Outgoing"]] retain];
 	
-	//fall back to Content if NextContent doesn't need to use different HTML
-	if(!nextContentInHTML) nextContentInHTML = [contentInHTML retain];
-	
-	//fall back to Incoming if Outgoing doesn't need to be different
-	if(!contentOutHTML) contentOutHTML = [contentInHTML retain];
-	if(!nextContentOutHTML) nextContentOutHTML = [nextContentInHTML retain];
-		  
 	//Message history
 	contextInHTML = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"Context" ofType:@"html" inDirectory:@"Incoming"]] retain];
 	nextContextInHTML = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"NextContext" ofType:@"html" inDirectory:@"Incoming"]] retain];
-	
-	//Fall back to Content if Context isn't present
-	if (!contextInHTML) contextInHTML = [contentInHTML retain];
-	if (!nextContextInHTML) nextContextInHTML = [nextContentInHTML retain];
-	
 	contextOutHTML = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"Context" ofType:@"html" inDirectory:@"Outgoing"]] retain];
 	nextContextOutHTML = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"NextContext" ofType:@"html" inDirectory:@"Outgoing"]] retain];
 	
+	//Fall back to Content if NextContent doesn't need to use different HTML
+	if (!nextContentInHTML) nextContentInHTML = [contentInHTML retain];
+
 	//Fall back to Content if Context isn't present
-	if (!contextOutHTML) contextOutHTML = [contentOutHTML retain];
-	if (!nextContextOutHTML) nextContextOutHTML = [nextContentOutHTML retain];
+	if (!nextContextInHTML) nextContextInHTML = [nextContentInHTML retain];
+	if (!contextInHTML) contextInHTML = [contentInHTML retain];
+	
+	//Fall back to Content if Context isn't present
+	if (!nextContextOutHTML && nextContentOutHTML) nextContextOutHTML = [nextContentOutHTML retain];
+	if (!contextOutHTML && contentOutHTML) contextOutHTML = [contentOutHTML retain];
+	
+	//Fall back to Content if Context isn't present
+	if (!nextContextOutHTML) nextContextOutHTML = [nextContextInHTML retain];
+	if (!contextOutHTML) contextOutHTML = [contextInHTML retain];
+	
+	//Fall back to Incoming if Outgoing doesn't need to be different
+	if (!contentOutHTML) contentOutHTML = [contentInHTML retain];
+	if (!nextContentOutHTML) nextContentOutHTML = [nextContentInHTML retain];
 	
 	//Status
 	statusHTML = [[NSString stringWithContentsOfUTF8File:[styleBundle semiCaseInsensitivePathForResource:@"Status" ofType:@"html"]] retain];
