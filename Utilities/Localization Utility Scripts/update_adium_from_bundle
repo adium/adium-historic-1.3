@@ -10,7 +10,8 @@
 # This script does not cover new localizations initially; they must first be
 # added via Xcode
 ################
-REPO=~/adium
+
+REPO=`pwd`
 
 SOURCE=$1
 
