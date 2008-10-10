@@ -17,7 +17,7 @@
 # - make all
 ###########
 
-VERSION=1.3.2-debug
+VERSION=1.3.3svn
 BUILD_IN_DEBUG_MODE?=TRUE
 BETA?=FALSE
 OFFICIAL_BUILD?=TRUE
