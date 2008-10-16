@@ -58,6 +58,10 @@
  */
 - (void)receivedMessage:(NSDictionary *)messageDict
 {
+	//Ignore notifications
+	if ([[messageDict objectForKey:@"type"] isEqualToString:@"notification"])
+		return;
+
 	NSString			*fromUID = [messageDict objectForKey:@"from"];
 	
 	//Ignore non-textual messages, like facebook notifications
