@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = Adium
-PROJECT_NUMBER         = 1.1
+PROJECT_NUMBER         = 1.3
 OUTPUT_DIRECTORY       = ./Docs
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = English
@@ -144,7 +144,7 @@ EXCLUDE_PATTERNS       = */build/* \
                          */Growl*/* \
                          */Include/* \
                          *SQL* \
-                         */FriBidi.framework/* \
+                         */FriBidi*/* \
                          */ShortcutRecorder/* \
                          */libezv/* \
                          */OTR.framework/* \
@@ -153,7 +153,13 @@ EXCLUDE_PATTERNS       = */build/* \
                          */.svn \
                          */.svn/* \
                          */*.nib/* \
+			 */UnitTests/* \
+			 */Utilities/* \
+                         */ASUnitTests/* \
+			 */PSMTabBarControl.framework/* \
+			 */RBSplitView/* \
                          */dep-build-scripts/* \
+			 */JSON*/* \
                          */libglib.framework/* \
                          */libgmodule.framework/* \
                          */libgthread.framework/* \
