@@ -18,6 +18,14 @@
 #import <Adium/AIDockControllerProtocol.h>
 #import <Adium/AIEmoticonControllerProtocol.h>
 
+/*!
+ *
+ * @mainpage Adium
+ *
+ * Adium is a multi-protocol instant messenger written in Objective-C and licensed under the GPL.
+ * You can find more about Adium at <http://trac.adiumx.com/wiki/AboutAdium>.
+ */
+
 @class  AICorePluginLoader, AICoreComponentLoader, SUUpdater;
 
 @protocol	AIAccountController, AIChatController, AIContactAlertsController, AIDebugController,
