@@ -92,53 +92,6 @@ enum {
 		initialized = NO;
 
 		[self prepareFileHandle];
-		
-		//Check if the file already exists
-		if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-			//Get the root element name and set initialized
-			rootElementName = [[self rootElementNameForFileAtPath:filePath] retain];
-			initialized = (rootElementName != nil);				
-		//We may need to create the directory structure, so call this just in case
-		} else {
-			NSFileManager *mgr = [NSFileManager defaultManager];
-
-			//Save the current working directory, so we can change back to it.
-			NSString *savedWorkingDirectory = [mgr currentDirectoryPath];
-			//Change to the root.
-			[mgr changeCurrentDirectoryPath:@"/"];
-
-			/*Create each component of the path, then change into it.
-			 *E.g. /foo/bar/baz:
-			 *	cd /
-			 *	mkdir foo
-			 *	cd foo
-			 *	mkdir bar
-			 *	cd bar
-			 *	mkdir baz
-			 *	cd baz
-			 *	cd $savedWorkingDirectory
-			 */
-			NSArray *pathComponents = [[filePath stringByDeletingLastPathComponent] pathComponents];
-			NSEnumerator *pathComponentsEnum = [pathComponents objectEnumerator];
-			NSString *component;
-			while ((component = [pathComponentsEnum nextObject])) {
-				[mgr createDirectoryAtPath:component attributes:nil];
-				[mgr changeCurrentDirectoryPath:component];
-			}
-
-			[mgr changeCurrentDirectoryPath:savedWorkingDirectory];
-		}
-		
-		//Open our file handle and seek if necessary
-		const char *pathCString = [filePath fileSystemRepresentation];
-		int fd = open(pathCString, O_CREAT | O_WRONLY, 0644);
-		file = [[NSFileHandle alloc] initWithFileDescriptor:fd closeOnDealloc:YES];
-		if (initialized) {
-			struct stat sb;
-			fstat(fd, &sb);
-			int closingTagLength = [rootElementName length] + 4; //</rootElementName>
-			[file seekToFileOffset:sb.st_size - closingTagLength];
-		}
 	}
 
 	return self;
