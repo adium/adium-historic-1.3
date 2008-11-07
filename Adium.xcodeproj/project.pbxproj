@@ -1352,14 +1352,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 3496A8E707CE6CA30055BBAB /* AutoHyperlinks.framework.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* AutoHyperlinks.framework */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = AutoHyperlinks.framework;
 		};
 		317D83AD0E89F91D00298BDB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 34D1AB510D693DEB00470520 /* RBSplitView.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D5E002A007328E1100594182 /* Framework */;
+			remoteGlobalIDString = D5E002A007328E1100594182;
 			remoteInfo = Framework;
 		};
 		31A763FA0DA570E9000AC729 /* PBXContainerItemProxy */ = {
