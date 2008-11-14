@@ -257,8 +257,6 @@ static NSString	*prefsCategory;
 	//Finish setting up the preference controller before the components and plugins load so they can read prefs 
 	[preferenceController controllerDidLoad];
 	[debugController controllerDidLoad];
-	//Safety for when we remove previously included list xtras
-	[AIAppearancePreferences migrateOldListSettingsIfNeeded];
 	[pool release];
 
 	//Plugins and components should always init last, since they rely on everything else.
