@@ -1201,25 +1201,6 @@
 		634BCD1F0DDC1542005AF1C2 /* TestMutableStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 634BCD1E0DDC1542005AF1C2 /* TestMutableStringAdditions.m */; };
 		6360B25A0BF2EB93004CD99B /* AIWebKitDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360B2590BF2EB93004CD99B /* AIWebKitDelegate.m */; };
 		638392F809D4D67A0067B9B7 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638392F609D4D67A0067B9B7 /* Sparkle.framework */; };
-		63AF931A0AA81E2300B88299 /* Bright Blue.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91C90AA8102600B88299 /* Bright Blue.ListTheme */; };
-		63AF931B0AA81E2300B88299 /* Bright Green.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91CA0AA8102600B88299 /* Bright Green.ListTheme */; };
-		63AF931D0AA81E2300B88299 /* Bright Pink.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91CC0AA8102600B88299 /* Bright Pink.ListTheme */; };
-		63AF931E0AA81E2300B88299 /* Large (iChat).ListLayout in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91CD0AA8102700B88299 /* Large (iChat).ListLayout */; };
-		63AF931F0AA81E2300B88299 /* Large (with service icons).ListLayout in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91CE0AA8102700B88299 /* Large (with service icons).ListLayout */; };
-		63AF93200AA81E2300B88299 /* Large.ListLayout in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91CF0AA8102700B88299 /* Large.ListLayout */; };
-		63AF93210AA81E2300B88299 /* Normal (with user icons).ListLayout in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D00AA8102700B88299 /* Normal (with user icons).ListLayout */; };
-		63AF93220AA81E2300B88299 /* Normal.ListLayout in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D10AA8102700B88299 /* Normal.ListLayout */; };
-		63AF93230AA81E2300B88299 /* Pastel Blue (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D20AA8102800B88299 /* Pastel Blue (White on Black).ListTheme */; };
-		63AF93240AA81E2300B88299 /* Pastel Blue.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D30AA8102800B88299 /* Pastel Blue.ListTheme */; };
-		63AF93250AA81E2300B88299 /* Pastel Gray (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D40AA8102800B88299 /* Pastel Gray (White on Black).ListTheme */; };
-		63AF93260AA81E2300B88299 /* Pastel Gray.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D50AA8102800B88299 /* Pastel Gray.ListTheme */; };
-		63AF93270AA81E2300B88299 /* Pastel Green (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D60AA8102800B88299 /* Pastel Green (White on Black).ListTheme */; };
-		63AF93280AA81E2300B88299 /* Pastel Green.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D70AA8102800B88299 /* Pastel Green.ListTheme */; };
-		63AF93290AA81E2300B88299 /* Pastel Pink (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91D80AA8102900B88299 /* Pastel Pink (White on Black).ListTheme */; };
-		63AF932B0AA81E2300B88299 /* Pure Black.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91DA0AA8102900B88299 /* Pure Black.ListTheme */; };
-		63AF932C0AA81E2300B88299 /* Pure White.ListTheme in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91DB0AA8102900B88299 /* Pure White.ListTheme */; };
-		63AF932D0AA81E2300B88299 /* Tiny (with user icons).ListLayout in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91DC0AA8102900B88299 /* Tiny (with user icons).ListLayout */; };
-		63AF932E0AA81E2300B88299 /* Tiny.ListLayout in Copy Legacy ListThemes and ListLayouts */ = {isa = PBXBuildFile; fileRef = 63AF91DD0AA8102A00B88299 /* Tiny.ListLayout */; };
 		63C120750910A0DD00C9DB57 /* DefaultXtraReadme.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 63C120740910A0DD00C9DB57 /* DefaultXtraReadme.rtf */; };
 		63DEB89009BD3FEC0026DC69 /* AIXtraPreviewImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DEB88E09BD3FEC0026DC69 /* AIXtraPreviewImageController.m */; };
 		63EA62CA094B832D009C8453 /* AIEmoticonPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EA62C8094B832D009C8453 /* AIEmoticonPreviewController.m */; };
@@ -1793,25 +1774,6 @@
 			dstPath = OldListXtras;
 			dstSubfolderSpec = 7;
 			files = (
-				63AF931A0AA81E2300B88299 /* Bright Blue.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF931B0AA81E2300B88299 /* Bright Green.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF931D0AA81E2300B88299 /* Bright Pink.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF931E0AA81E2300B88299 /* Large (iChat).ListLayout in Copy Legacy ListThemes and ListLayouts */,
-				63AF931F0AA81E2300B88299 /* Large (with service icons).ListLayout in Copy Legacy ListThemes and ListLayouts */,
-				63AF93200AA81E2300B88299 /* Large.ListLayout in Copy Legacy ListThemes and ListLayouts */,
-				63AF93210AA81E2300B88299 /* Normal (with user icons).ListLayout in Copy Legacy ListThemes and ListLayouts */,
-				63AF93220AA81E2300B88299 /* Normal.ListLayout in Copy Legacy ListThemes and ListLayouts */,
-				63AF93230AA81E2300B88299 /* Pastel Blue (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF93240AA81E2300B88299 /* Pastel Blue.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF93250AA81E2300B88299 /* Pastel Gray (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF93260AA81E2300B88299 /* Pastel Gray.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF93270AA81E2300B88299 /* Pastel Green (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF93280AA81E2300B88299 /* Pastel Green.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF93290AA81E2300B88299 /* Pastel Pink (White on Black).ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF932B0AA81E2300B88299 /* Pure Black.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF932C0AA81E2300B88299 /* Pure White.ListTheme in Copy Legacy ListThemes and ListLayouts */,
-				63AF932D0AA81E2300B88299 /* Tiny (with user icons).ListLayout in Copy Legacy ListThemes and ListLayouts */,
-				63AF932E0AA81E2300B88299 /* Tiny.ListLayout in Copy Legacy ListThemes and ListLayouts */,
 			);
 			name = "Copy Legacy ListThemes and ListLayouts";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4141,25 +4103,6 @@
 		636AB7F1087E2B6700A87670 /* AIDockBadger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDockBadger.h; sourceTree = "<group>"; };
 		636AB7F2087E2B6700A87670 /* AIDockBadger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDockBadger.m; sourceTree = "<group>"; };
 		638392F609D4D67A0067B9B7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
-		63AF91C90AA8102600B88299 /* Bright Blue.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Bright Blue.ListTheme"; sourceTree = "<group>"; };
-		63AF91CA0AA8102600B88299 /* Bright Green.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Bright Green.ListTheme"; sourceTree = "<group>"; };
-		63AF91CC0AA8102600B88299 /* Bright Pink.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Bright Pink.ListTheme"; sourceTree = "<group>"; };
-		63AF91CD0AA8102700B88299 /* Large (iChat).ListLayout */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Large (iChat).ListLayout"; sourceTree = "<group>"; };
-		63AF91CE0AA8102700B88299 /* Large (with service icons).ListLayout */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Large (with service icons).ListLayout"; sourceTree = "<group>"; };
-		63AF91CF0AA8102700B88299 /* Large.ListLayout */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = Large.ListLayout; sourceTree = "<group>"; };
-		63AF91D00AA8102700B88299 /* Normal (with user icons).ListLayout */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Normal (with user icons).ListLayout"; sourceTree = "<group>"; };
-		63AF91D10AA8102700B88299 /* Normal.ListLayout */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = Normal.ListLayout; sourceTree = "<group>"; };
-		63AF91D20AA8102800B88299 /* Pastel Blue (White on Black).ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pastel Blue (White on Black).ListTheme"; sourceTree = "<group>"; };
-		63AF91D30AA8102800B88299 /* Pastel Blue.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pastel Blue.ListTheme"; sourceTree = "<group>"; };
-		63AF91D40AA8102800B88299 /* Pastel Gray (White on Black).ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pastel Gray (White on Black).ListTheme"; sourceTree = "<group>"; };
-		63AF91D50AA8102800B88299 /* Pastel Gray.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pastel Gray.ListTheme"; sourceTree = "<group>"; };
-		63AF91D60AA8102800B88299 /* Pastel Green (White on Black).ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pastel Green (White on Black).ListTheme"; sourceTree = "<group>"; };
-		63AF91D70AA8102800B88299 /* Pastel Green.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pastel Green.ListTheme"; sourceTree = "<group>"; };
-		63AF91D80AA8102900B88299 /* Pastel Pink (White on Black).ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pastel Pink (White on Black).ListTheme"; sourceTree = "<group>"; };
-		63AF91DA0AA8102900B88299 /* Pure Black.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pure Black.ListTheme"; sourceTree = "<group>"; };
-		63AF91DB0AA8102900B88299 /* Pure White.ListTheme */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Pure White.ListTheme"; sourceTree = "<group>"; };
-		63AF91DC0AA8102900B88299 /* Tiny (with user icons).ListLayout */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = "Tiny (with user icons).ListLayout"; sourceTree = "<group>"; };
-		63AF91DD0AA8102A00B88299 /* Tiny.ListLayout */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = Tiny.ListLayout; sourceTree = "<group>"; };
 		63C120740910A0DD00C9DB57 /* DefaultXtraReadme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = DefaultXtraReadme.rtf; path = Resources/DefaultXtraReadme.rtf; sourceTree = "<group>"; };
 		63DEB88D09BD3FEC0026DC69 /* AIXtraPreviewImageController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AIXtraPreviewImageController.h; path = Source/AIXtraPreviewImageController.h; sourceTree = "<group>"; };
 		63DEB88E09BD3FEC0026DC69 /* AIXtraPreviewImageController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AIXtraPreviewImageController.m; path = Source/AIXtraPreviewImageController.m; sourceTree = "<group>"; };
@@ -7248,33 +7191,6 @@
 			path = "Plugins/Dock Icon Badging";
 			sourceTree = "<group>";
 		};
-		63AF91C80AA80FE300B88299 /* OldListXtras */ = {
-			isa = PBXGroup;
-			children = (
-				63AF91C90AA8102600B88299 /* Bright Blue.ListTheme */,
-				63AF91CA0AA8102600B88299 /* Bright Green.ListTheme */,
-				63AF91CC0AA8102600B88299 /* Bright Pink.ListTheme */,
-				63AF91CD0AA8102700B88299 /* Large (iChat).ListLayout */,
-				63AF91CE0AA8102700B88299 /* Large (with service icons).ListLayout */,
-				63AF91CF0AA8102700B88299 /* Large.ListLayout */,
-				63AF91D00AA8102700B88299 /* Normal (with user icons).ListLayout */,
-				63AF91D10AA8102700B88299 /* Normal.ListLayout */,
-				63AF91D20AA8102800B88299 /* Pastel Blue (White on Black).ListTheme */,
-				63AF91D30AA8102800B88299 /* Pastel Blue.ListTheme */,
-				63AF91D40AA8102800B88299 /* Pastel Gray (White on Black).ListTheme */,
-				63AF91D50AA8102800B88299 /* Pastel Gray.ListTheme */,
-				63AF91D60AA8102800B88299 /* Pastel Green (White on Black).ListTheme */,
-				63AF91D70AA8102800B88299 /* Pastel Green.ListTheme */,
-				63AF91D80AA8102900B88299 /* Pastel Pink (White on Black).ListTheme */,
-				63AF91DA0AA8102900B88299 /* Pure Black.ListTheme */,
-				63AF91DB0AA8102900B88299 /* Pure White.ListTheme */,
-				63AF91DC0AA8102900B88299 /* Tiny (with user icons).ListLayout */,
-				63AF91DD0AA8102A00B88299 /* Tiny.ListLayout */,
-			);
-			name = OldListXtras;
-			path = Resources/OldListXtras;
-			sourceTree = "<group>";
-		};
 		661561620D84AEB0004B7946 /* Contact Hiding */ = {
 			isa = PBXGroup;
 			children = (
@@ -7711,7 +7627,6 @@
 				3402E04107CB0E4D0044F818 /* Localizable.strings */,
 				F59DB6AD033EB74801A8010A /* main.m */,
 				34575E3807CBA88E004A4FFF /* MainMenu.nib */,
-				63AF91C80AA80FE300B88299 /* OldListXtras */,
 				4B191D890611C10800E8A4E7 /* ReadMe.rtf */,
 				34D8326307CBD598006466F2 /* sendfile.png */,
 				345DA0660CA09AD0009F1989 /* Statuses.strings */,
