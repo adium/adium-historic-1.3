@@ -729,7 +729,7 @@
 	if(atsign.location != NSNotFound)
 		[super removeContact:theContact];
 	else {
-		NSEnumerator *e = [gateways objectEnumerator];
+		NSEnumerator *e = [[[gateways copy] autorelease] objectEnumerator];
 		NSDictionary *gatewaydict;
 		while((gatewaydict = [e nextObject])) {
 			if([[[gatewaydict objectForKey:@"contact"] UID] isEqualToString:[theContact UID]]) {
