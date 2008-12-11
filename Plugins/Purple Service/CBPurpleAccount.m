@@ -1229,27 +1229,37 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 
 - (void)renameRoomOccupant:(NSString *)contactName to:(NSString *)newName inChat:(AIChat *)chat
 {
-	AIListContact	*occupant = (AIListContact *)[chat objectWithService:[[chat account] service]
-																	 UID:contactName];
-
-	[occupant setFormattedUID:newName notify:NotifyLater];
+	//XXX duplicate names. We're not given constant identifiers in many protocols (irc, xmpp, ???)
+	NSEnumerator *contactEnum = [[chat containedObjects] objectEnumerator];
+	AIListContact *contact;
+	while (contact = [contactEnum nextObject]) {
+		if ([[contact formattedUID] isEqualToString:contactName]) {
+			[contact setFormattedUID:newName notify:NotifyNow];
+			return;
+		}
+	}
+	
+	AILog(@"Couldn't find anyone called %@ to rename to %@ in %@", contactName, newName, chat);
 }
 
 - (void)removeUser:(NSString *)contactName fromChat:(AIChat *)chat
 {
-	AIListContact	*contact;
-
-	if ((chat) && 
-		(contact = [self contactWithUID:[self uidForContactWithUID:contactName inChat:chat]])) {
-
-		AILogWithSignature(@"Removing %@ from %@", contact, chat);
-
-		[chat removeObject:contact];
-		
-	} else {
-		AILog(@"Could not remove %@ from %@ (contactWithUID: %@)",
-			  contactName,chat,[self contactWithUID:[self uidForContactWithUID:contactName inChat:chat]]);
+	if (!chat)
+		return;
+	
+	//XXX duplicate names. We're not given constant identifiers in many protocols (irc, xmpp, ???)
+	NSEnumerator *contactEnum = [[chat containedObjects] objectEnumerator];
+	AIListContact *contact;
+	while (contact = [contactEnum nextObject]) {
+		if ([[contact formattedUID] isEqualToString:contactName]) {
+			AILogWithSignature(@"Removing %@ from %@", contact, chat);
+			
+			[chat removeObject:contact];
+			return;
+		}
 	}
+	
+	AILog(@"Couldn't find anyone called %@ to remove from %@", contactName, chat);
 }
 
 - (void)removeUsersArray:(NSArray *)usersArray fromChat:(AIChat *)chat
