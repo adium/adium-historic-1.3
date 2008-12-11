@@ -954,17 +954,15 @@
 		enumerator = [[[self chat] containedObjects] objectEnumerator];
 		while ((listContact = [enumerator nextObject])) {
 			if ([[listContact displayName] rangeOfString:partialWord
-												 options:(NSLiteralSearch | NSAnchoredSearch)].location != NSNotFound) {
-				
+												 options:(NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound
+					 ||
+					[[listContact formattedUID] rangeOfString:partialWord
+												  options:(NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound
+					 ||
+				[[listContact UID] rangeOfString:partialWord
+										 options:(NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound
+					) {
 				[completions addObject:(suffix ? [[listContact displayName] stringByAppendingString:suffix] : [listContact displayName])];
-				
-			} else if ([[listContact formattedUID] rangeOfString:partialWord
-														 options:(NSLiteralSearch | NSAnchoredSearch)].location != NSNotFound) {
-				[completions addObject:(suffix ? [[listContact formattedUID] stringByAppendingString:suffix] : [listContact formattedUID])];
-				
-			} else if ([[listContact UID] rangeOfString:partialWord
-												options:(NSLiteralSearch | NSAnchoredSearch)].location != NSNotFound) {
-				[completions addObject:(suffix ? [[listContact UID] stringByAppendingString:suffix] : [listContact UID])];
 			}
 		}
 
@@ -976,7 +974,7 @@
 		completions = nil;
 	}
 
-	return ([completions count] ? completions : words);
+	return [completions count] ? completions : words;
 }
 
 //User List ------------------------------------------------------------------------------------------------------------
