@@ -58,16 +58,16 @@
 	[currentSearchLock unlock];
 
 	//Retrieve matches as long as more are pending
-    while (more && currentSearch) {
+	while (more && currentSearch) {
 #define BATCH_NUMBER 100
-        SKDocumentID	foundDocIDs[BATCH_NUMBER];
-        float			foundScores[BATCH_NUMBER];
-        SKDocumentRef	foundDocRefs[BATCH_NUMBER];
+		SKDocumentID	foundDocIDs[BATCH_NUMBER];
+		float			foundScores[BATCH_NUMBER];
+		SKDocumentRef	foundDocRefs[BATCH_NUMBER];
 
-        CFIndex foundCount = 0;
-        CFIndex i;
+		CFIndex foundCount = 0;
+		CFIndex i;
 		
-        more = SKSearchFindMatches (
+		more = SKSearchFindMatches (
 									thisSearch,
 									BATCH_NUMBER,
 									foundDocIDs,
@@ -76,19 +76,25 @@
 									&foundCount
 									);
 		
-        totalCount += foundCount;
+		totalCount += foundCount;
 		
-        SKIndexCopyDocumentRefsForDocumentIDs (
+		SKIndexCopyDocumentRefsForDocumentIDs (
 											   logSearchIndex,
 											   foundCount,
 											   foundDocIDs,
 											   foundDocRefs
 											   );
-        for (i = 0; ((i < foundCount) && (searchID == activeSearchID)) ; i++) {
+		for (i = 0; ((i < foundCount) && (searchID == activeSearchID)) ; i++) {
 			SKDocumentRef	document = foundDocRefs[i];
+			if (!document) {
+				AILogWithSignature(@"SearchKit returned NULL document for ID %ld", (long)foundDocIDs[i]);
+				totalCount--;
+				continue;
+			}
 			CFURLRef		url = SKDocumentCopyURL(document);
 			if (!url) {
 				AILogWithSignature(@"No URL for document %p", document);
+				totalCount--;
 				continue;
 			}
 			/*
@@ -146,7 +152,7 @@
 			//if (logPath) CFRelease(logPath);
 			if (url) CFRelease(url);
 			if (document) CFRelease(document);
-        }
+		}
 		
 		//Scale all logs' ranking values to the largest ranking value we've seen thus far
 		[resultsLock lock];
