@@ -17,9 +17,9 @@
 # - make all
 ###########
 
-VERSION=1.3.3svn
+VERSION=1.3.3b1
 BUILD_IN_DEBUG_MODE?=TRUE
-BETA?=FALSE
+BETA?=TRUE
 OFFICIAL_BUILD?=TRUE
 
 # Always builds in debug mode.
