@@ -72,10 +72,13 @@
 }
 - (AIMessageWindow *)valueInChatWindowsWithUniqueID:(NSNumber *)uniqueID
 {
-	for (NSWindow *window in [self orderedWindows])
+	NSEnumerator *enumerator = [[self orderedWindows] objectEnumerator];
+	NSWindow *window;
+	while ((window = [enumerator nextObject])) {
 		if ([window isKindOfClass:[AIMessageWindow class]])
 			if ([window hash] == [uniqueID unsignedIntValue])
 				return (AIMessageWindow *)window;
+	}
 	return nil;
 }
 - (NSArray *)chats
