@@ -53,6 +53,8 @@ static void endStructure(CFXMLParserRef parser, void *xmlType, void *context);
 	
 	state = XML_STATE_NONE;
 	
+	dateFormatter = [[NSDateFormatter localizedDateFormatStringShowingSeconds:YES showingAMorPM:YES] retain];
+	
 	inputFileString = nil;
 	sender = nil;
 	mySN = nil;
