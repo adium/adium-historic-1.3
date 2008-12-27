@@ -70,6 +70,9 @@
 - (void)dealloc
 {
 	[searchField setDelegate:nil];
+	
+	[filterBarAnimation stopAnimation];
+	[filterBarAnimation setDelegate:nil];
 	[filterBarAnimation autorelease];
 	[filterBarPreviouslySelected release];
 	
