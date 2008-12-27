@@ -95,6 +95,7 @@ static void endStructure(CFXMLParserRef parser, void *xmlType, void *context);
 
 - (void)dealloc
 {
+	[dateFormatter release];
 	[newlineAttributedString release];
 	[inputFileString release];
 	[eventTranslate release];
@@ -302,10 +303,8 @@ static void endStructure(CFXMLParserRef parser, void *xmlType, void *context);
 					}
 				}
 				
-				NSString *timestampStr = [date descriptionWithCalendarFormat:[NSDateFormatter localizedDateFormatStringShowingSeconds:YES
-																														showingAMorPM:YES]
-																	timeZone:nil
-																	  locale:nil];
+				NSString *timestampStr = [dateFormatter stringFromDate:date];
+				
 				BOOL sentMessage = [mySN isEqualToString:sender];
 				[output appendAttributedString:[htmlDecoder decodeHTML:[NSString stringWithFormat:
 										 @"<div class=\"%@\">%@<span class=\"sender\">%@%@:</span></div> ",
@@ -349,10 +348,7 @@ static void endStructure(CFXMLParserRef parser, void *xmlType, void *context);
 				if([displayMessage length])
 					[output appendAttributedString:[htmlDecoder decodeHTML:[NSString stringWithFormat:@"<div class=\"status\">%@ (%@)</div>\n",
 																			displayMessage,
-																			[date descriptionWithCalendarFormat:[NSDateFormatter localizedDateFormatStringShowingSeconds:YES
-																																						   showingAMorPM:YES]
-																									   timeZone:nil
-																										 locale:nil]]]];
+																			[dateFormatter stringFromDate:date]]]];
 				state = XML_STATE_CHAT;
 			}			
 		case XML_STATE_CHAT:
