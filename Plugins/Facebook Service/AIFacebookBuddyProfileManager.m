@@ -15,7 +15,7 @@
 #define KEY_KEY		@"Key"
 #define KEY_VALUE	@"Value"
 
-@interface AIFacebookBuddyProfileManager ()
+@interface AIFacebookBuddyProfileManager (PRIVATE)
 + (NSArray *)extractProfileFromSource:(NSString *)source forContact:(AIListContact *)currentContact;
 @end
 
@@ -44,7 +44,6 @@ static NSURL	*currentURL = nil;
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:currentURL
 														   cachePolicy:NSURLRequestUseProtocolCachePolicy
 													   timeoutInterval:120];		
-	NSLog(@"Loading %@ --> %@", currentURL, request);
 
 	[[webView mainFrame] loadRequest:request];
 
