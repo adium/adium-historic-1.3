@@ -14,6 +14,7 @@
 #import "AIFacebookOutgoingMessageManager.h"
 #import "AIFacebookIncomingMessageManager.h"
 #import "AIFacebookStatusManager.h"
+#import "AIFacebookBuddyProfileManager.h"
 
 #define LOGIN_PAGE	@"https://login.facebook.com/login.php"
 #define FACEBOOK_HOME_PAGE	@"http://www.facebook.com/home.php"
@@ -215,6 +216,11 @@
 		[buddyListManager moveContact:listObject
 					  toGroupWithName:[group UID]];
 	}
+}
+
+- (void)delayedUpdateContactStatus:(AIListContact *)inContact
+{
+	[AIFacebookBuddyProfileManager retrieveProfileForContact:inContact];
 }
 
 #pragma mark Status
