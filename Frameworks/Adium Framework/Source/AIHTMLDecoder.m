@@ -1304,11 +1304,20 @@ onlyIncludeOutgoingImages:(BOOL)onlyIncludeOutgoingImages
 							[myBaseURL release];
 							myBaseURL = [[[self parseArguments:chunkString] objectForKey:@"href"] retain];
 						}
-					// Ignore <meta> tags
+					//Ignore <meta> tags
 					} else if ([chunkString caseInsensitiveCompare:@"META"] == NSOrderedSame ||
 							   ([chunkString caseInsensitiveCompare:@"/META"] == NSOrderedSame)) {
 						[scanner scanUpToCharactersFromSet:absoluteTagEnd intoString:&chunkString];
-						
+					
+					//Ignore <ul>, </ul>, and </li>
+					} else if (([chunkString caseInsensitiveCompare:@"UL"] == NSOrderedSame) ||
+							   ([chunkString caseInsensitiveCompare:@"/UL"] == NSOrderedSame) ||
+							   ([chunkString caseInsensitiveCompare:@"/LI"] == NSOrderedSame)) {
+
+					//Convert <li> into a bullet point
+					} else if ([chunkString caseInsensitiveCompare:@"LI"] == NSOrderedSame) {
+						[attrString appendString:@"• " withAttributes:[textAttributes dictionary]];
+	
 					//Invalid
 					} else {
 						validTag = NO;
@@ -1776,7 +1785,10 @@ onlyIncludeOutgoingImages:(BOOL)onlyIncludeOutgoingImages
 			//NSURL does not expect an HTML-escaped string, but HTML-escape codes are valid within links (e.g. &amp;)
 			linkString = [linkString stringByUnescapingFromXMLWithEntities:nil];
 
-			[textAttributes setLinkURL:[NSURL URLWithString:linkString]];
+			if (baseURL)
+				[textAttributes setLinkURL:[NSURL URLWithString:linkString relativeToURL:[NSURL URLWithString:baseURL]]];
+			else
+				[textAttributes setLinkURL:[NSURL URLWithString:linkString]];
 		}
 	}
 }
@@ -1825,13 +1837,22 @@ onlyIncludeOutgoingImages:(BOOL)onlyIncludeOutgoingImages
 	while ((arg = [enumerator nextObject])) {
 		if ([arg caseInsensitiveCompare:@"src"] == NSOrderedSame) {
 			NSString	*src = [inArgs objectForKey:arg];
-			
-			//The src may be a file:// style path; convert it to a system path via NSURL
-			NSURL		*url = [NSURL URLWithString:src];
-			if (url && [url isFileURL]) src = [url path];
+			NSURL		*url = (baseURL ?
+								[NSURL URLWithString:src relativeToURL:[NSURL URLWithString:baseURL]] :
+								[NSURL URLWithString:src]);
 
-			if (inBaseURL && ![[NSFileManager defaultManager] fileExistsAtPath:src])
-				src = [inBaseURL stringByAppendingPathComponent:src];
+			if (url && ![url isFileURL]) {
+				NSData *data = [NSData dataWithContentsOfURL:url];
+				//Arbitrary image extension; it just needs to have one.
+				src = [[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString randomStringOfLength:8]] stringByAppendingPathExtension:@"png"];
+				[data writeToFile:src
+					   atomically:YES];
+			} else {
+				src = [url path];
+				
+				if (inBaseURL && ![[NSFileManager defaultManager] fileExistsAtPath:src])
+					src = [inBaseURL stringByAppendingPathComponent:src];
+			}
 
 			[attachment setPath:src];
 		}
