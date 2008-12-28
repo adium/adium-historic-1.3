@@ -562,6 +562,7 @@
 		349C6E8E07C972B2005EB896 /* AIExtendedStatusPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 349C6E8C07C972B2005EB896 /* AIExtendedStatusPlugin.m */; };
 		349C6F6607C99ACF005EB896 /* ESContactListAdvancedPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 349C6F6407C99ACE005EB896 /* ESContactListAdvancedPreferences.m */; };
 		349C7C7A07C9AE1B005EB896 /* ContactListAdvancedPrefs.nib in Resources */ = {isa = PBXBuildFile; fileRef = 349C6F8A07C99D2C005EB896 /* ContactListAdvancedPrefs.nib */; };
+		349D66C70F06E2ED00922F5D /* AIFacebookBuddyProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 349D66C50F06E2ED00922F5D /* AIFacebookBuddyProfileManager.m */; };
 		349E2E8E07A8AF0C00EAB76A /* AIEmoticonPackPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349E2E8C07A8AF0C00EAB76A /* AIEmoticonPackPreviewController.m */; };
 		34A1A8CA0DFB246400AC78CF /* AISocialNetworkingStatusMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A1A8C80DFB246300AC78CF /* AISocialNetworkingStatusMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34A1A8CB0DFB246400AC78CF /* AISocialNetworkingStatusMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A1A8C90DFB246300AC78CF /* AISocialNetworkingStatusMenu.m */; };
@@ -3107,6 +3108,8 @@
 		349C6F6307C99ACE005EB896 /* ESContactListAdvancedPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESContactListAdvancedPreferences.h; path = Source/ESContactListAdvancedPreferences.h; sourceTree = "<group>"; };
 		349C6F6407C99ACE005EB896 /* ESContactListAdvancedPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ESContactListAdvancedPreferences.m; path = Source/ESContactListAdvancedPreferences.m; sourceTree = "<group>"; };
 		349C6F8A07C99D2C005EB896 /* ContactListAdvancedPrefs.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ContactListAdvancedPrefs.nib; path = Resources/ContactListAdvancedPrefs.nib; sourceTree = "<group>"; };
+		349D66C50F06E2ED00922F5D /* AIFacebookBuddyProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIFacebookBuddyProfileManager.m; path = "Plugins/Facebook Service/AIFacebookBuddyProfileManager.m"; sourceTree = "<group>"; };
+		349D66C60F06E2ED00922F5D /* AIFacebookBuddyProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIFacebookBuddyProfileManager.h; path = "Plugins/Facebook Service/AIFacebookBuddyProfileManager.h"; sourceTree = "<group>"; };
 		349DDD5206406A7D00542726 /* stackImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stackImage.png; path = "Frameworks/Adium Framework/stackImage.png"; sourceTree = "<group>"; };
 		349E2E8B07A8AF0C00EAB76A /* AIEmoticonPackPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIEmoticonPackPreviewController.h; path = Plugins/Emoticons/AIEmoticonPackPreviewController.h; sourceTree = "<group>"; };
 		349E2E8C07A8AF0C00EAB76A /* AIEmoticonPackPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIEmoticonPackPreviewController.m; path = Plugins/Emoticons/AIEmoticonPackPreviewController.m; sourceTree = "<group>"; };
@@ -5626,6 +5629,8 @@
 				34A687A50DD38E04008F0430 /* AIFacebookAccountViewController.m */,
 				34A1EE970DD3BFB00090667A /* AIFacebookBuddyListManager.h */,
 				34A1EE980DD3BFB00090667A /* AIFacebookBuddyListManager.m */,
+				349D66C60F06E2ED00922F5D /* AIFacebookBuddyProfileManager.h */,
+				349D66C50F06E2ED00922F5D /* AIFacebookBuddyProfileManager.m */,
 				34A1EFDC0DD3D4BB0090667A /* AIFacebookBuddyIconRequest.h */,
 				34A1EFDD0DD3D4BB0090667A /* AIFacebookBuddyIconRequest.m */,
 				34A3C8CA0DD3DBB100D35F10 /* AIFacebookOutgoingMessageManager.h */,
@@ -9543,6 +9548,7 @@
 				34A3C8CC0DD3DBB100D35F10 /* AIFacebookOutgoingMessageManager.m in Sources */,
 				34A3C9000DD3DF8000D35F10 /* AIFacebookIncomingMessageManager.m in Sources */,
 				341FFD940DD85B1E0049F13D /* AIFacebookStatusManager.m in Sources */,
+				349D66C70F06E2ED00922F5D /* AIFacebookBuddyProfileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
