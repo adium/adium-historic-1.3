@@ -10,7 +10,7 @@
 # This script does not cover new localizations initially; they must first be
 # added via Xcode
 ################
-REPO=~/adium
+REPO=~/adium-1.3
 
 SOURCE=$1
 
@@ -60,7 +60,7 @@ update_language()
 {
     #first parameter to update_language is the language
     LANG=$1.lproj
-    DEST_LANG=$LANG
+    DEST_LANG=sl.lproj
     
     echo "+++++ Updating $LANG"
 
