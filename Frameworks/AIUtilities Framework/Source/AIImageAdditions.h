@@ -47,7 +47,7 @@ typedef enum {
  *
  * @result An NSData JPEG representation whose length is <= maxByteSize, or nil if one could not be made.
  */
-- (NSData *)JPEGRepresentationWithMaximumByteSize:(NSUInteger)maxByteSize;
+- (NSData *)JPEGRepresentationWithMaximumByteSize:(unsigned)maxByteSize;
 - (NSData *)PNGRepresentation;
 - (NSData *)GIFRepresentation;
 - (NSData *)BMPRepresentation;

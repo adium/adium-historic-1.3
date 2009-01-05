@@ -129,7 +129,7 @@
 													  properties:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:compressionFactor] 
 																							 forKey:NSImageCompressionFactor]]);	
 }
-- (NSData *)JPEGRepresentationWithMaximumByteSize:(NSUInteger)maxByteSize
+- (NSData *)JPEGRepresentationWithMaximumByteSize:(unsigned)maxByteSize
 {
 	/* JPEG does not support transparency, but NSImage does. We need to create a non-transparent NSImage
 	 * before creating our representation or transparent parts will become black.  White is preferable.
