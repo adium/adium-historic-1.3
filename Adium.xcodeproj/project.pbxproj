@@ -3305,6 +3305,48 @@
 		34AEE7DD08E3546F00AE1C78 /* ESPurpleFileReceiveRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ESPurpleFileReceiveRequestController.m; path = "Plugins/Purple Service/ESPurpleFileReceiveRequestController.m"; sourceTree = "<group>"; };
 		34AEE7E808E35A5800AE1C78 /* ESPurpleRequestAbstractWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESPurpleRequestAbstractWindowController.h; path = "Plugins/Purple Service/ESPurpleRequestAbstractWindowController.h"; sourceTree = "<group>"; };
 		34AEE7E908E35A5800AE1C78 /* ESPurpleRequestAbstractWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ESPurpleRequestAbstractWindowController.m; path = "Plugins/Purple Service/ESPurpleRequestAbstractWindowController.m"; sourceTree = "<group>"; };
+		34B102890F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/AccountProxy.nib; sourceTree = "<group>"; };
+		34B1028A0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/AIAdvancedInspectorPane.nib; sourceTree = "<group>"; };
+		34B1028B0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/AppearancePrefs.nib; sourceTree = "<group>"; };
+		34B1028C0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = Resources/el_GR.lproj/Buttons.strings; sourceTree = "<group>"; };
+		34B1028D0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/DCPurpleJabberJoinChatView.nib"; sourceTree = "<group>"; };
+		34B1028E0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/DCPurpleMeanwhileJoinChatView.nib"; sourceTree = "<group>"; };
+		34B1028F0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/DCPurpleOscarJoinChatView.nib"; sourceTree = "<group>"; };
+		34B102900F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/DCPurpleYahooJoinChatView.nib"; sourceTree = "<group>"; };
+		34B102910F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/DCPurpleZephyrJoinChatView.nib"; sourceTree = "<group>"; };
+		34B102920F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/DualWindowMessageAdvanced.nib; sourceTree = "<group>"; };
+		34B102930F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Frameworks/Adium Framework/Resources/el_GR.lproj/EditStateSheet.nib"; sourceTree = "<group>"; };
+		34B102940F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = "Frameworks/Adium Framework/Resources/el_GR.lproj/EmoticonNames.strings"; sourceTree = "<group>"; };
+		34B102950F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/ESFileTransferProgressView.nib; sourceTree = "<group>"; };
+		34B102960F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleGaduGaduAccountView.nib"; sourceTree = "<group>"; };
+		34B102970F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleICQAccountView.nib"; sourceTree = "<group>"; };
+		34B102980F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleJabberAccountView.nib"; sourceTree = "<group>"; };
+		34B102990F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleMeanwhileAccountView.nib"; sourceTree = "<group>"; };
+		34B1029A0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleMSNAccountView.nib"; sourceTree = "<group>"; };
+		34B1029B0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleNovellAccountView.nib"; sourceTree = "<group>"; };
+		34B1029C0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleOscarAccountView.nib"; sourceTree = "<group>"; };
+		34B1029D0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleSimpleAccountView.nib"; sourceTree = "<group>"; };
+		34B1029E0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleYahooAccountView.nib"; sourceTree = "<group>"; };
+		34B1029F0F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/ESPurpleZephyrAccountView.nib"; sourceTree = "<group>"; };
+		34B102A00F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/GeneralPreferences.nib; sourceTree = "<group>"; };
+		34B102A10F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = Resources/el_GR.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		34B102A20F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/ListLayoutSheet.nib; sourceTree = "<group>"; };
+		34B102A30F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/ListThemeSheet.nib; sourceTree = "<group>"; };
+		34B102A40F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = "Plugins/WebKit Message View/el_GR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		34B102A50F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = "Frameworks/Adium Framework/Resources/el_GR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		34B102A60F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = "Plugins/Purple Service/el_GR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		34B102A70F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = Resources/el_GR.lproj/Localizable.strings; sourceTree = "<group>"; };
+		34B102A80F13AC3500C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/MessageHistoryConfiguration.nib; sourceTree = "<group>"; };
+		34B102A90F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/OTRPrefs.nib; sourceTree = "<group>"; };
+		34B102AA0F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/PasswordPrompt.nib; sourceTree = "<group>"; };
+		34B102AB0F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/PersonalPreferences.nib; sourceTree = "<group>"; };
+		34B102AC0F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/ProxyPasswordPrompt.nib; sourceTree = "<group>"; };
+		34B102AD0F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = folder; name = el_GR; path = "Resources/el_GR.lproj/Shared Dock Icon Images"; sourceTree = "<group>"; };
+		34B102AE0F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = Resources/el_GR.lproj/ShortcutRecorder.strings; sourceTree = "<group>"; };
+		34B102AF0F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el_GR; path = Resources/el_GR.lproj/Statuses.strings; sourceTree = "<group>"; };
+		34B102B00F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/StatusPreferences.nib; sourceTree = "<group>"; };
+		34B102B10F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = Resources/el_GR.lproj/StatusSortConfiguration.nib; sourceTree = "<group>"; };
+		34B102B20F13AC3600C7E952 /* el_GR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el_GR; path = "Plugins/WebKit Message View/el_GR.lproj/WebKitPreferencesView.nib"; sourceTree = "<group>"; };
 		34B1268C0B924E28003B0451 /* adiumPurpleDnsRequest.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = adiumPurpleDnsRequest.h; path = "Plugins/Purple Service/adiumPurpleDnsRequest.h"; sourceTree = "<group>"; };
 		34B1268D0B924E28003B0451 /* adiumPurpleDnsRequest.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = adiumPurpleDnsRequest.m; path = "Plugins/Purple Service/adiumPurpleDnsRequest.m"; sourceTree = "<group>"; };
 		34B271EB0839E8E30092A5A0 /* is */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = is; path = "Plugins/Purple Service/is.lproj/ESPurpleGaduGaduAccountView.nib"; sourceTree = "<group>"; };
@@ -8557,6 +8599,7 @@
 				en_GB,
 				pt,
 				hu,
+				el_GR,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CocAIMe2 */;
 			projectDirPath = "";
@@ -10266,6 +10309,7 @@
 				345076B60E106F5F00BF0883 /* en_GB */,
 				345076F40E106FD600BF0883 /* pt */,
 				346C9D8E0E70E540002314EE /* hu */,
+				34B102AD0F13AC3600C7E952 /* el_GR */,
 			);
 			name = "Shared Dock Icon Images";
 			sourceTree = "<group>";
@@ -10298,6 +10342,7 @@
 				3450769F0E106F5D00BF0883 /* en_GB */,
 				345076DE0E106FD600BF0883 /* pt */,
 				346C9D760E70E540002314EE /* hu */,
+				34B102950F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESFileTransferProgressView.nib;
 			sourceTree = "<group>";
@@ -10330,6 +10375,7 @@
 				345076B50E106F5F00BF0883 /* en_GB */,
 				345076F30E106FD600BF0883 /* pt */,
 				346C9D8D0E70E540002314EE /* hu */,
+				34B102AC0F13AC3600C7E952 /* el_GR */,
 			);
 			name = ProxyPasswordPrompt.nib;
 			sourceTree = "<group>";
@@ -10362,6 +10408,7 @@
 				345076B30E106F5F00BF0883 /* en_GB */,
 				345076F10E106FD600BF0883 /* pt */,
 				346C9D8B0E70E540002314EE /* hu */,
+				34B102AA0F13AC3600C7E952 /* el_GR */,
 			);
 			name = PasswordPrompt.nib;
 			sourceTree = "<group>";
@@ -10394,6 +10441,7 @@
 				345076B00E106F5F00BF0883 /* en_GB */,
 				345076EE0E106FD600BF0883 /* pt */,
 				346C9D860E70E540002314EE /* hu */,
+				34B102A70F13AC3500C7E952 /* el_GR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -10425,6 +10473,7 @@
 				345076AF0E106F5E00BF0883 /* en_GB */,
 				345076ED0E106FD600BF0883 /* pt */,
 				346C9D870E70E540002314EE /* hu */,
+				34B102A60F13AC3500C7E952 /* el_GR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -10456,6 +10505,7 @@
 				345076AE0E106F5E00BF0883 /* en_GB */,
 				345076EF0E106FD600BF0883 /* pt */,
 				346C9D880E70E540002314EE /* hu */,
+				34B102A40F13AC3500C7E952 /* el_GR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -10488,6 +10538,7 @@
 				3450769E0E106F5D00BF0883 /* en_GB */,
 				345076DD0E106FD600BF0883 /* pt */,
 				346C9D730E70E540002314EE /* hu */,
+				34B102920F13AC3500C7E952 /* el_GR */,
 			);
 			name = DualWindowMessageAdvanced.nib;
 			sourceTree = "<group>";
@@ -10520,6 +10571,7 @@
 				345074BF0E106BDE00BF0883 /* en_GB */,
 				345074C20E106BF000BF0883 /* pt */,
 				346C9D850E70E540002314EE /* hu */,
+				34B102A50F13AC3500C7E952 /* el_GR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -10550,6 +10602,7 @@
 				340E9CB40E34EEB20032BEA6 /* da */,
 				344DE8A10E43899B005FF022 /* nb */,
 				346C9D8A0E70E540002314EE /* hu */,
+				34B102A90F13AC3600C7E952 /* el_GR */,
 			);
 			name = OTRPrefs.nib;
 			sourceTree = "<group>";
@@ -10582,6 +10635,7 @@
 				345074BD0E106BDE00BF0883 /* en_GB */,
 				345074C00E106BF000BF0883 /* pt */,
 				346C9D740E70E540002314EE /* hu */,
+				34B102930F13AC3500C7E952 /* el_GR */,
 			);
 			name = EditStateSheet.nib;
 			sourceTree = "<group>";
@@ -10614,6 +10668,7 @@
 				345076950E106F5C00BF0883 /* en_GB */,
 				345076D40E106FD500BF0883 /* pt */,
 				346C9D6A0E70E53F002314EE /* hu */,
+				34B102890F13AC3500C7E952 /* el_GR */,
 			);
 			name = AccountProxy.nib;
 			sourceTree = "<group>";
@@ -10645,6 +10700,7 @@
 				345076A50E106F5E00BF0883 /* en_GB */,
 				345076E40E106FD600BF0883 /* pt */,
 				346C9D7C0E70E540002314EE /* hu */,
+				34B1029B0F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleNovellAccountView.nib;
 			sourceTree = "<group>";
@@ -10677,6 +10733,7 @@
 				345076970E106F5C00BF0883 /* en_GB */,
 				345076D60E106FD500BF0883 /* pt */,
 				346C9D6C0E70E53F002314EE /* hu */,
+				34B1028B0F13AC3500C7E952 /* el_GR */,
 			);
 			name = AppearancePrefs.nib;
 			sourceTree = "<group>";
@@ -10708,6 +10765,7 @@
 				345076A00E106F5D00BF0883 /* en_GB */,
 				345076DF0E106FD600BF0883 /* pt */,
 				346C9D770E70E540002314EE /* hu */,
+				34B102960F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleGaduGaduAccountView.nib;
 			sourceTree = "<group>";
@@ -10739,6 +10797,7 @@
 				345076A40E106F5D00BF0883 /* en_GB */,
 				345076E30E106FD600BF0883 /* pt */,
 				346C9D7B0E70E540002314EE /* hu */,
+				34B1029A0F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleMSNAccountView.nib;
 			sourceTree = "<group>";
@@ -10770,6 +10829,7 @@
 				3450769D0E106F5C00BF0883 /* en_GB */,
 				345076DC0E106FD600BF0883 /* pt */,
 				346C9D720E70E540002314EE /* hu */,
+				34B102910F13AC3500C7E952 /* el_GR */,
 			);
 			name = DCPurpleZephyrJoinChatView.nib;
 			sourceTree = "<group>";
@@ -10801,6 +10861,7 @@
 				3450769B0E106F5C00BF0883 /* en_GB */,
 				345076DA0E106FD500BF0883 /* pt */,
 				346C9D700E70E53F002314EE /* hu */,
+				34B1028F0F13AC3500C7E952 /* el_GR */,
 			);
 			name = DCPurpleOscarJoinChatView.nib;
 			sourceTree = "<group>";
@@ -10832,6 +10893,7 @@
 				3450769C0E106F5C00BF0883 /* en_GB */,
 				345076DB0E106FD600BF0883 /* pt */,
 				346C9D710E70E540002314EE /* hu */,
+				34B102900F13AC3500C7E952 /* el_GR */,
 			);
 			name = DCPurpleYahooJoinChatView.nib;
 			sourceTree = "<group>";
@@ -10863,6 +10925,7 @@
 				345076A90E106F5E00BF0883 /* en_GB */,
 				345076E80E106FD600BF0883 /* pt */,
 				346C9D800E70E540002314EE /* hu */,
+				34B1029F0F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleZephyrAccountView.nib;
 			sourceTree = "<group>";
@@ -10894,6 +10957,7 @@
 				3450769A0E106F5C00BF0883 /* en_GB */,
 				345076D90E106FD500BF0883 /* pt */,
 				346C9D6F0E70E53F002314EE /* hu */,
+				34B1028E0F13AC3500C7E952 /* el_GR */,
 			);
 			name = DCPurpleMeanwhileJoinChatView.nib;
 			sourceTree = "<group>";
@@ -10925,6 +10989,7 @@
 				345076BA0E106F5F00BF0883 /* en_GB */,
 				345076F80E106FD600BF0883 /* pt */,
 				346C9D920E70E540002314EE /* hu */,
+				34B102B10F13AC3600C7E952 /* el_GR */,
 			);
 			name = StatusSortConfiguration.nib;
 			sourceTree = "<group>";
@@ -10956,6 +11021,7 @@
 				345076990E106F5C00BF0883 /* en_GB */,
 				345076D80E106FD500BF0883 /* pt */,
 				346C9D6E0E70E53F002314EE /* hu */,
+				34B1028D0F13AC3500C7E952 /* el_GR */,
 			);
 			name = DCPurpleJabberJoinChatView.nib;
 			sourceTree = "<group>";
@@ -10987,6 +11053,7 @@
 				345076A10E106F5D00BF0883 /* en_GB */,
 				345076E00E106FD600BF0883 /* pt */,
 				346C9D780E70E540002314EE /* hu */,
+				34B102970F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleICQAccountView.nib;
 			sourceTree = "<group>";
@@ -11018,6 +11085,7 @@
 				345076A60E106F5E00BF0883 /* en_GB */,
 				345076E50E106FD600BF0883 /* pt */,
 				346C9D7D0E70E540002314EE /* hu */,
+				34B1029C0F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleOscarAccountView.nib;
 			sourceTree = "<group>";
@@ -11049,6 +11117,7 @@
 				345076A30E106F5D00BF0883 /* en_GB */,
 				345076E20E106FD600BF0883 /* pt */,
 				346C9D7A0E70E540002314EE /* hu */,
+				34B102990F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleMeanwhileAccountView.nib;
 			sourceTree = "<group>";
@@ -11080,6 +11149,7 @@
 				345076A80E106F5E00BF0883 /* en_GB */,
 				345076E70E106FD600BF0883 /* pt */,
 				346C9D7F0E70E540002314EE /* hu */,
+				34B1029E0F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleYahooAccountView.nib;
 			sourceTree = "<group>";
@@ -11111,6 +11181,7 @@
 				345076A20E106F5D00BF0883 /* en_GB */,
 				345076E10E106FD600BF0883 /* pt */,
 				346C9D790E70E540002314EE /* hu */,
+				34B102980F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleJabberAccountView.nib;
 			sourceTree = "<group>";
@@ -11143,6 +11214,7 @@
 				345076AD0E106F5E00BF0883 /* en_GB */,
 				345076EC0E106FD600BF0883 /* pt */,
 				346C9D840E70E540002314EE /* hu */,
+				34B102A30F13AC3500C7E952 /* el_GR */,
 			);
 			name = ListThemeSheet.nib;
 			sourceTree = "<group>";
@@ -11175,6 +11247,7 @@
 				345076AC0E106F5E00BF0883 /* en_GB */,
 				345076EB0E106FD600BF0883 /* pt */,
 				346C9D830E70E540002314EE /* hu */,
+				34B102A20F13AC3500C7E952 /* el_GR */,
 			);
 			name = ListLayoutSheet.nib;
 			sourceTree = "<group>";
@@ -11206,6 +11279,7 @@
 				345076A70E106F5E00BF0883 /* en_GB */,
 				345076E60E106FD600BF0883 /* pt */,
 				346C9D7E0E70E540002314EE /* hu */,
+				34B1029D0F13AC3500C7E952 /* el_GR */,
 			);
 			name = ESPurpleSimpleAccountView.nib;
 			sourceTree = "<group>";
@@ -11238,6 +11312,7 @@
 				345076B80E106F5F00BF0883 /* en_GB */,
 				345076F60E106FD600BF0883 /* pt */,
 				346C9D900E70E540002314EE /* hu */,
+				34B102AF0F13AC3600C7E952 /* el_GR */,
 			);
 			name = Statuses.strings;
 			sourceTree = "<group>";
@@ -11270,6 +11345,7 @@
 				345076B10E106F5F00BF0883 /* en_GB */,
 				345076F00E106FD600BF0883 /* pt */,
 				346C9D890E70E540002314EE /* hu */,
+				34B102A80F13AC3500C7E952 /* el_GR */,
 			);
 			name = MessageHistoryConfiguration.nib;
 			sourceTree = "<group>";
@@ -11302,6 +11378,7 @@
 				345076B70E106F5F00BF0883 /* en_GB */,
 				345076F50E106FD600BF0883 /* pt */,
 				346C9D8F0E70E540002314EE /* hu */,
+				34B102AE0F13AC3600C7E952 /* el_GR */,
 			);
 			name = ShortcutRecorder.strings;
 			sourceTree = "<group>";
@@ -11334,6 +11411,7 @@
 				345076B90E106F5F00BF0883 /* en_GB */,
 				345076F70E106FD600BF0883 /* pt */,
 				346C9D910E70E540002314EE /* hu */,
+				34B102B00F13AC3600C7E952 /* el_GR */,
 			);
 			name = StatusPreferences.nib;
 			sourceTree = "<group>";
@@ -11365,6 +11443,7 @@
 				345076BB0E106F6000BF0883 /* en_GB */,
 				345076F90E106FD600BF0883 /* pt */,
 				346C9D930E70E540002314EE /* hu */,
+				34B102B20F13AC3600C7E952 /* el_GR */,
 			);
 			name = WebKitPreferencesView.nib;
 			sourceTree = "<group>";
@@ -11397,6 +11476,7 @@
 				345076AB0E106F5E00BF0883 /* en_GB */,
 				345076EA0E106FD600BF0883 /* pt */,
 				346C9D820E70E540002314EE /* hu */,
+				34B102A10F13AC3500C7E952 /* el_GR */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -11429,6 +11509,7 @@
 				345076980E106F5C00BF0883 /* en_GB */,
 				345076D70E106FD500BF0883 /* pt */,
 				346C9D6D0E70E53F002314EE /* hu */,
+				34B1028C0F13AC3500C7E952 /* el_GR */,
 			);
 			name = Buttons.strings;
 			sourceTree = "<group>";
@@ -11461,6 +11542,7 @@
 				345076960E106F5C00BF0883 /* en_GB */,
 				345076D50E106FD500BF0883 /* pt */,
 				346C9D6B0E70E53F002314EE /* hu */,
+				34B1028A0F13AC3500C7E952 /* el_GR */,
 			);
 			name = AIAdvancedInspectorPane.nib;
 			sourceTree = "<group>";
@@ -11493,6 +11575,7 @@
 				345076AA0E106F5E00BF0883 /* en_GB */,
 				345076E90E106FD600BF0883 /* pt */,
 				346C9D810E70E540002314EE /* hu */,
+				34B102A00F13AC3500C7E952 /* el_GR */,
 			);
 			name = GeneralPreferences.nib;
 			sourceTree = "<group>";
@@ -11525,6 +11608,7 @@
 				345076B40E106F5F00BF0883 /* en_GB */,
 				345076F20E106FD600BF0883 /* pt */,
 				346C9D8C0E70E540002314EE /* hu */,
+				34B102AB0F13AC3600C7E952 /* el_GR */,
 			);
 			name = PersonalPreferences.nib;
 			sourceTree = "<group>";
@@ -11557,6 +11641,7 @@
 				345074BE0E106BDE00BF0883 /* en_GB */,
 				345074C10E106BF000BF0883 /* pt */,
 				346C9D750E70E540002314EE /* hu */,
+				34B102940F13AC3500C7E952 /* el_GR */,
 			);
 			name = EmoticonNames.strings;
 			sourceTree = "<group>";
