@@ -150,6 +150,7 @@
 		34064CFF0F21B29500AA6FE3 /* PurpleFacebookService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34064CF90F21B29000AA6FE3 /* PurpleFacebookService.h */; };
 		34064D000F21B29500AA6FE3 /* PurpleFacebookAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 34064CFA0F21B29000AA6FE3 /* PurpleFacebookAccount.m */; };
 		34064D010F21B29500AA6FE3 /* PurpleFacebookAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 34064CFB0F21B29000AA6FE3 /* PurpleFacebookAccount.h */; };
+		34064DB60F22441400AA6FE3 /* PurpleFacebookAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34064D1C0F21B36500AA6FE3 /* PurpleFacebookAccountViewController.m */; };
 		340670A90A55A4B4004E22AC /* ESGlassSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 340670A70A55A4B4004E22AC /* ESGlassSplitView.m */; };
 		34082675075B079800703011 /* Dock Icons in Copy Built-In Xtras */ = {isa = PBXBuildFile; fileRef = 3408254D075B078B00703011 /* Dock Icons */; };
 		34082690075B5CB900703011 /* Awake.png in Resources */ = {isa = PBXBuildFile; fileRef = 3408268E075B5CB900703011 /* Awake.png */; };
@@ -9361,6 +9362,7 @@
 				34EF905E0E2EB1C5003E5DC7 /* AIPurpleMobileMeAccount.m in Sources */,
 				34064CFE0F21B29500AA6FE3 /* PurpleFacebookService.m in Sources */,
 				34064D000F21B29500AA6FE3 /* PurpleFacebookAccount.m in Sources */,
+				34064DB60F22441400AA6FE3 /* PurpleFacebookAccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
