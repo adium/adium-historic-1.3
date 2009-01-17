@@ -604,7 +604,7 @@ static NSArray *validSenderColors;
 
 - (NSString *)scriptForScrollingAfterAddingMultipleContentObjects
 {
-	if (styleVersion >= 3) {
+	if ((styleVersion >= 3) || !usingCustomTemplateHTML) {
 		return @"alignChat(true);";
 	}
 
