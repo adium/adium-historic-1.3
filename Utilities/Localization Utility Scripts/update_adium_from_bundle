@@ -60,7 +60,7 @@ update_language()
 {
     #first parameter to update_language is the language
     LANG=$1.lproj
-    DEST_LANG=sl.lproj
+    DEST_LANG=$LANG
     
     echo "+++++ Updating $LANG"
 
