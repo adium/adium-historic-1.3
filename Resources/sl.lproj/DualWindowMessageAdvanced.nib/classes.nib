@@ -1,6 +1,11 @@
 {
     IBClasses =     (
                 {
+            CLASS = AIAdvancedPreferencePane;
+            LANGUAGE = ObjC;
+            SUPERCLASS = AIModularPane;
+        },
+                {
             CLASS = AILocalizationButton;
             LANGUAGE = ObjC;
             OUTLETS =             {
@@ -18,6 +23,7 @@
                 "view_anchorToLeftSide" = NSView;
                 "view_anchorToRightSide" = NSView;
                 "window_anchorOnLeftSide" = NSWindow;
+                "window_anchorOnRightSide" = NSWindow;
             };
             SUPERCLASS = NSTextField;
         },
@@ -25,15 +31,17 @@
             ACTIONS =             {
                 changePreference = id;
             };
-            CLASS = AIPreferencePane;
+            CLASS = AIModularPane;
             LANGUAGE = ObjC;
             OUTLETS =             {
-                delegate = id;
-                "textField_title" = NSTextField;
+                plugin = id;
                 view = NSView;
-                "view_containerSubView" = NSView;
-                "view_containerView" = NSView;
             };
+            SUPERCLASS = AIObject;
+        },
+                {
+            CLASS = AIObject;
+            LANGUAGE = ObjC;
             SUPERCLASS = NSObject;
         },
                 {
@@ -46,12 +54,13 @@
                 "checkBox_badgeDockIcon" = NSButton;
                 "checkBox_customNameFormatting" = NSButton;
                 "checkBox_hide" = NSButton;
+                "checkBox_psychicOpen" = NSButton;
                 "popUp_minimumFontSize" = NSPopUpButton;
                 "popUp_nameFormat" = NSPopUpButton;
                 "popUp_timeStampFormat" = NSPopUpButton;
                 "popUp_windowPosition" = NSPopUpButton;
             };
-            SUPERCLASS = AIPreferencePane;
+            SUPERCLASS = AIAdvancedPreferencePane;
         },
                 {
             CLASS = FirstResponder;
@@ -59,8 +68,61 @@
             SUPERCLASS = NSObject;
         },
                 {
+            CLASS = NSApplication;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSResponder;
+        },
+                {
+            CLASS = NSButton;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSControl;
+        },
+                {
+            CLASS = NSButtonCell;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSActionCell;
+        },
+                {
+            ACTIONS =             {
+                adiumPrint = id;
+                didAdjustSubviews = RBSplitView;
+                prefsWindowWillClose = "SS_PrefsController";
+                toggleFindPanel = id;
+                willAdjustSubviews = RBSplitView;
+            };
             CLASS = NSObject;
             LANGUAGE = ObjC;
+        },
+                {
+            CLASS = NSTextField;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSControl;
+        },
+                {
+            CLASS = NSWindow;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSResponder;
+        },
+                {
+            CLASS = RBSplitSubview;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSView;
+        },
+                {
+            CLASS = RBSplitView;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                delegate = id;
+            };
+            SUPERCLASS = RBSplitSubview;
+        },
+                {
+            CLASS = "SS_PrefsController";
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                delegate = id;
+            };
+            SUPERCLASS = NSObject;
         }
     );
     IBVersion = 1;
