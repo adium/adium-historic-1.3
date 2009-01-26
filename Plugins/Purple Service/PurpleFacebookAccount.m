@@ -95,7 +95,7 @@
 					   closeFontTags:YES
 						   styleTags:YES
 		  closeStyleTagsOnFontChange:YES
-					  encodeNonASCII:YES
+					  encodeNonASCII:NO
 						encodeSpaces:NO
 						  imagesPath:nil
 				   attachmentsAsText:YES
