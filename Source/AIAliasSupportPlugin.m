@@ -206,7 +206,6 @@
     NSString			*formattedUID = nil;
 
 	//Apply the alias
-	AILogWithSignature(@"Adium alias %@ will be applied to %@", inAlias, inObject);
 	[[inObject displayArrayForKey:@"Display Name" create:(inAlias != nil)] setObject:inAlias withOwner:self priorityLevel:High_Priority];
 
 	//Get the displayName which is now active for the object
