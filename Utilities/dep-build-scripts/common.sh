@@ -1,6 +1,8 @@
 #!/bin/sh
 # Common variables and helper functions
 
+export PIDGIN_SOURCE="$SOURCEDIR/im.pidgin.adium"
+
 # Bails out if any command exits with a non zero exit code
 # In all scripts if it doesn't matter what a return code is make sure to use cmd || true
 set -e

@@ -19,7 +19,7 @@ xargs -I %file% tar xjf %file%); rm -f *.tar.*; cd ..
 === DOWNLOADING PIDGIN SOURCE TREE ===
 
 The Pidgin source is not installed by the download script. Adium currently uses
-libpurple 2.4.3mtn from branch im.pidgin.adium. Patches applied during the
+libpurple 2.5.5 from branch im.pidgin.adium.1-3. Patches applied during the
 build process expect this version.
 
 The official documentation for getting Pidgin source is maintained at
@@ -91,8 +91,7 @@ this file to change build behavior such as which SDK to use.
 
 === SETTING PIDGIN PATH ===
 
-Before building libpurple, we must tell the build scripts where to find the
-Pidgin source. In the common.sh file, under the "# Directories" heading, add
+In the common.sh file, under the "# Directories" heading, you'll find:
 
 export PIDGIN_SOURCE="$SOURCEDIR/im.pidgin.adium"
 
