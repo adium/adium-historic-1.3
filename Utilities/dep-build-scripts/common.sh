@@ -1,8 +1,6 @@
 #!/bin/sh
 # Common variables and helper functions
 
-export PIDGIN_SOURCE="$SOURCEDIR/im.pidgin.adium"
-
 # Bails out if any command exits with a non zero exit code
 # In all scripts if it doesn't matter what a return code is make sure to use cmd || true
 set -e
@@ -22,6 +20,8 @@ SOURCEDIR="$PWD/source"
 BUILDDIR="$PWD/build"
 UNIVERSAL_DIR="$BUILDDIR/universal"
 LOGDIR="$PWD/build"
+
+export PIDGIN_SOURCE="$SOURCEDIR/im.pidgin.adium"
 
 # Compiler options
 TARGET_DIR_PPC="$BUILDDIR/root-ppc"
