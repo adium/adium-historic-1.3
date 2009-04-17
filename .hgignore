@@ -1,0 +1,8 @@
+syntax: glob
+Adium.xcodeproj/*.mode*
+Adium.xcodeproj/*.pbxuser
+build
+Icon*
+Utilities/build
+Utilities/dep-build-scripts/build
+Utilities/dep-build-scripts/source
