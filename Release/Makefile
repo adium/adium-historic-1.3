@@ -98,16 +98,16 @@ all-withlocalchanges-noclean: update assertnoconflicts version compile release
 all-nopackage-noclean: update assertnoconflicts version compile createfolder prepare-release-bundle
 
 update:
-	svn update $(SRC_DIR)
+	hg pull -u -R $(SRC_DIR)
 
 assertnochanges: assertnoconflicts
-	if [[ 0 -ne `svn st $(SRC_DIR) | egrep --invert-match '\?|Info\.plist' | wc -l` ]]; then \
+	if [[ 0 -ne `hg st $(SRC_DIR) | egrep --invert-match '\?|Info\.plist' | wc -l` ]]; then \
 		echo 'You have local changes. Please do not build releases from an unclean checkout. You must revert the changes, commit them, or check out another working copy and build from that.' 1>&2; \
 		exit 1; \
 	fi
 assertnoconflicts:
-	if [[ 0 -ne `svn st $(SRC_DIR) | egrep '^C' | wc -l` ]]; then \
-		echo 'You have conflicts in your checkout. You will not be able to build until these are resolved. Also, remember that even after you have fixed all conflict marks, you must use "svn resolved"; otherwise, svn will still believe the files are conflicted.' 1>&2; \
+	if [[ 0 -ne `hg st $(SRC_DIR) | egrep '^C' | wc -l` ]]; then \
+		echo 'You have conflicts in your checkout. You will not be able to build until these are resolved. Also, remember that even after you have fixed all conflict marks, you must use "hg resolve"; otherwise, hg will still believe the files are conflicted.' 1>&2; \
 		exit 2; \
 	fi
 
@@ -141,8 +141,7 @@ ifeq ($(BUILD_IN_DEBUG_MODE),FALSE)
 	find $(BUILD_DIR) \( -name classes.nib -or -name info.nib \) -type f -delete
 endif
 	
-	@# delete svn  and backup files
-	find $(BUILD_DIR) -name ".svn" -type d -exec rm -rf {} \; -prune
+	@# delete backup files
 	find $(BUILD_DIR) \( -name "*~" -or -name .DS_Store \) -type f -delete
 
 	@# sign the executable
@@ -188,6 +187,4 @@ nightly: assertnochanges version clean compile release
 	md5 -q $(BUILD_DIR)/$(RELEASE_NAME).dmg > $(BUILD_DIR)/$(RELEASE_NAME).dmg.md5sum
 
 tarball:
-	svn export -q --non-interactive $(SRC_DIR) $(TARBALL_DIR)
-	tar zcf $(TARBALL_DIR).tgz $(TARBALL_DIR)
-	rm -rf $(TARBALL_DIR)
+	hg archive -t tgz ($TARBALL_DIR).tgz
