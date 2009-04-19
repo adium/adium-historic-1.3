@@ -17,10 +17,10 @@
 # - make all
 ###########
 
-VERSION=1.3.3
+VERSION=1.3.4svn
 BUILD_IN_DEBUG_MODE?=FALSE
-BETA?=FALSE
-OFFICIAL_BUILD?=TRUE
+BETA?=TRUE
+OFFICIAL_BUILD?=FALSE
 
 # Always builds in debug mode.
 NIGHTLY?=FALSE
