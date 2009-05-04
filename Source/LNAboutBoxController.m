@@ -24,7 +24,7 @@
 #import <AIUtilities/AIDateFormatterAdditions.h>
 
 #define ABOUT_BOX_NIB		@"AboutBox"
-#define	ADIUM_SITE_LINK		AILocalizedString(@"http://www.adiumx.com/","Adium homepage. Only localize if a translated version of the page exists.")
+#define	ADIUM_SITE_LINK		AILocalizedString(@"http://www.adium.im","Adium homepage. Only localize if a translated version of the page exists.")
 
 #define ABOUT_SCROLL_FPS	30.0
 #define ABOUT_SCROLL_RATE	1.0
@@ -110,7 +110,7 @@ LNAboutBoxController *sharedAboutBoxInstance = nil;
 //Visit the Adium homepage
 - (IBAction)visitHomepage:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.adiumx.com"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.adium.im"]];
 }
 
 
