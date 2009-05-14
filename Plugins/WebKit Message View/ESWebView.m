@@ -79,6 +79,7 @@
 	NSWindow *win = [self window];
 	if(win)
 		[win setOpaque:!transparentBackground];
+	[super viewDidMoveToWindow];
 }
 
 //Font Family ----------------------------------------------------------------------------------------------------------
