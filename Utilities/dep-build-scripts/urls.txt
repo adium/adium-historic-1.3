@@ -15,3 +15,4 @@ http://toxygen.net/libgadu/files/libgadu-1.7.1.tar.gz
 http://softlayer.dl.sourceforge.net/sourceforge/meanwhile/meanwhile-1.0.2.tar.gz
 http://ftp.gnome.org/pub/gnome/sources/intltool/0.36/intltool-0.36.2.tar.gz
 http://pkgconfig.freedesktop.org/releases/pkg-config-0.22.tar.gz
+http://folks.o-hand.com/~ebassi/sources/json-glib-0.6.2.tar.gz

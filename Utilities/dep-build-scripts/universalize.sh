@@ -16,8 +16,9 @@ LIBGMODULE=libgmodule-2.0.0
 MEANWHILE=libmeanwhile.1
 GADU=libgadu.3.7.0
 SASL=libsasl2.2
+JSONGLIB=libjson-glib-1.0.0
 
-PURPLE_VERSION=0.5.6
+PURPLE_VERSION=0.5.7
 
 LIBPURPLE=libpurple.$PURPLE_VERSION
 PURPLE_FOLDER=libpurple-$PURPLE_VERSION
@@ -53,6 +54,9 @@ mkdir libgthread-2.0.0 || true
 # no headers to copy, make an empty file so that rtool isn't sad
 touch libgthread-2.0.0/no_headers_here.txt
 
+mkdir libjson || true
+cp -R $TARGET_DIR_I386/include/json-glib-1.0/ $UNIVERSAL_DIR/include/libjson-glib/
+
 rm -rf $UNIVERSAL_DIR/include/$PURPLE_FOLDER
 cp -R $TARGET_DIR_I386/include/libpurple $UNIVERSAL_DIR/include/$PURPLE_FOLDER
 # Another hack: we need libgadu.h
@@ -63,7 +67,7 @@ cd ..
 
 cd $UNIVERSAL_DIR
 
-for lib in $LIBINTL $LIBGLIB $LIBGOBJECT $LIBGTHREAD $LIBGMODULE $MEANWHILE \
+for lib in $LIBINTL $LIBGLIB $LIBGOBJECT $LIBGTHREAD $LIBGMODULE $JSONGLIB $MEANWHILE \
            $GADU $LIBPURPLE; do
 	echo "Making $lib universal..."
 	python $SCRIPT_DIR/framework_maker/universalize.py \
