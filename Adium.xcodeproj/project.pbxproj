@@ -94,6 +94,10 @@
 		1172FBD80CDAA8D400B8E233 /* libmeanwhile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172FBC80CDAA8D400B8E233 /* libmeanwhile.framework */; };
 		1172FBD90CDAA8D400B8E233 /* libpurple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172FBC90CDAA8D400B8E233 /* libpurple.framework */; };
 		117D6DC00BC5F0C40080D02B /* notify.png in Resources */ = {isa = PBXBuildFile; fileRef = 117D6DBF0BC5F0C40080D02B /* notify.png */; };
+		118A43240FEE9856008153C0 /* libjson-glib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A43230FEE9856008153C0 /* libjson-glib.framework */; };
+		118A43250FEE9856008153C0 /* libjson-glib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A43230FEE9856008153C0 /* libjson-glib.framework */; };
+		118A43260FEE9856008153C0 /* libjson-glib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 118A43230FEE9856008153C0 /* libjson-glib.framework */; };
+		118A43290FEE985C008153C0 /* libjson-glib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 118A43230FEE9856008153C0 /* libjson-glib.framework */; };
 		11AA1EFA0BCAE9C3003DDA66 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AA1EF90BCAE9C3003DDA66 /* Quartz.framework */; };
 		11C7CAF30BB58F4100296D7F /* AINudgeBuzzHandlerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C7CAF10BB58F4100296D7F /* AINudgeBuzzHandlerPlugin.m */; };
 		11CA00100C35EC5100A6BB8D /* SS_PreferencePaneProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 344836910BC8510B0083723B /* SS_PreferencePaneProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1644,6 +1648,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				118A43290FEE985C008153C0 /* libjson-glib.framework in Copy Frameworks */,
 				11EE1CCF0CDD01120097F246 /* libglib.framework in Copy Frameworks */,
 				11EE1CD00CDD01120097F246 /* libgmodule.framework in Copy Frameworks */,
 				11EE1CD10CDD01120097F246 /* libgobject.framework in Copy Frameworks */,
@@ -1754,6 +1759,7 @@
 		1172FBC80CDAA8D400B8E233 /* libmeanwhile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libmeanwhile.framework; path = Frameworks/libmeanwhile.framework; sourceTree = "<group>"; };
 		1172FBC90CDAA8D400B8E233 /* libpurple.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libpurple.framework; path = Frameworks/libpurple.framework; sourceTree = "<group>"; };
 		117D6DBF0BC5F0C40080D02B /* notify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = notify.png; path = Resources/notify.png; sourceTree = SOURCE_ROOT; };
+		118A43230FEE9856008153C0 /* libjson-glib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "libjson-glib.framework"; path = "Frameworks/libjson-glib.framework"; sourceTree = "<group>"; };
 		11AA1EF90BCAE9C3003DDA66 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		11C157D804A88E04008E0C76 /* AIEmoticonController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AIEmoticonController.h; path = Source/AIEmoticonController.h; sourceTree = "<group>"; };
 		11C157D904A88E04008E0C76 /* AIEmoticonController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AIEmoticonController.m; path = Source/AIEmoticonController.m; sourceTree = "<group>"; };
@@ -4373,6 +4379,7 @@
 				1172FBD00CDAA8D400B8E233 /* libmeanwhile.framework in Frameworks */,
 				1172FBD10CDAA8D400B8E233 /* libpurple.framework in Frameworks */,
 				811035180CDE783800EC6038 /* SecurityInterface.framework in Frameworks */,
+				118A43240FEE9856008153C0 /* libjson-glib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4421,6 +4428,7 @@
 				31918ED80C5E486C00717F0A /* QTKit.framework in Frameworks */,
 				31E0CD580C5EEEFA00271DB1 /* QuickTime.framework in Frameworks */,
 				31E0CD810C5EEF5200271DB1 /* CoreAudio.framework in Frameworks */,
+				118A43250FEE9856008153C0 /* libjson-glib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4482,6 +4490,7 @@
 				1172FBD70CDAA8D400B8E233 /* libintl.framework in Frameworks */,
 				1172FBD80CDAA8D400B8E233 /* libmeanwhile.framework in Frameworks */,
 				1172FBD90CDAA8D400B8E233 /* libpurple.framework in Frameworks */,
+				118A43260FEE9856008153C0 /* libjson-glib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4516,6 +4525,7 @@
 		1172FCA10CDAA8DE00B8E233 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				118A43230FEE9856008153C0 /* libjson-glib.framework */,
 				1172FBC30CDAA8D400B8E233 /* libglib.framework */,
 				1172FBC40CDAA8D400B8E233 /* libgmodule.framework */,
 				1172FBC50CDAA8D400B8E233 /* libgobject.framework */,
@@ -11499,7 +11509,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/Frameworks\"";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -11541,7 +11555,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/Frameworks\"";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -11583,7 +11601,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/Frameworks\"";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -12018,7 +12040,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Adium.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -12059,7 +12083,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Adium.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -12100,7 +12126,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Adium.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -12260,7 +12288,9 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
 				HEADER_SEARCH_PATHS = (
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
@@ -12286,7 +12316,9 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
 				HEADER_SEARCH_PATHS = (
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
@@ -12312,7 +12344,9 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_PROJECT_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
 				HEADER_SEARCH_PATHS = (
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
