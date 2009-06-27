@@ -77,6 +77,7 @@
 		110763F808676CC9005987A5 /* RAFBlockEditorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110763F408676CC9005987A5 /* RAFBlockEditorWindowController.m */; };
 		110763FA08676D05005987A5 /* BlockEditorWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 110763F908676D04005987A5 /* BlockEditorWindow.nib */; };
 		11077B6F0DE647C100A4DD25 /* AIStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11077B6E0DE647C100A4DD25 /* AIStatusItemView.m */; };
+		1125DBB00FF5A23900544B92 /* PurpleFacebookAccountView.nib in Resources */ = {isa = PBXBuildFile; fileRef = 1125DBAF0FF5A23900544B92 /* PurpleFacebookAccountView.nib */; };
 		1134399B0C6E870B006C115D /* AIListSmartGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 113439990C6E870B006C115D /* AIListSmartGroup.m */; };
 		113439F30C6EB1EF006C115D /* AIListSmartGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 113439980C6E870B006C115D /* AIListSmartGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1172FBCB0CDAA8D400B8E233 /* libglib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1172FBC30CDAA8D400B8E233 /* libglib.framework */; };
@@ -1749,6 +1750,7 @@
 		110763F908676D04005987A5 /* BlockEditorWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = BlockEditorWindow.nib; path = Resources/BlockEditorWindow.nib; sourceTree = "<group>"; };
 		11077B6D0DE647C100A4DD25 /* AIStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIStatusItemView.h; path = "Plugins/Status Menu Item/AIStatusItemView.h"; sourceTree = "<group>"; };
 		11077B6E0DE647C100A4DD25 /* AIStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIStatusItemView.m; path = "Plugins/Status Menu Item/AIStatusItemView.m"; sourceTree = "<group>"; };
+		1125DBAF0FF5A23900544B92 /* PurpleFacebookAccountView.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = PurpleFacebookAccountView.nib; path = "Plugins/Purple Service/PurpleFacebookAccountView.nib"; sourceTree = "<group>"; };
 		113439980C6E870B006C115D /* AIListSmartGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIListSmartGroup.h; path = "Frameworks/Adium Framework/Source/AIListSmartGroup.h"; sourceTree = "<group>"; };
 		113439990C6E870B006C115D /* AIListSmartGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIListSmartGroup.m; path = "Frameworks/Adium Framework/Source/AIListSmartGroup.m"; sourceTree = "<group>"; };
 		1172FBC30CDAA8D400B8E233 /* libglib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libglib.framework; path = Frameworks/libglib.framework; sourceTree = "<group>"; };
@@ -4618,6 +4620,7 @@
 				312ED3D80C7E89CC00A6BDA9 /* Unit tests */,
 				29B97323FDCFA39411CA2CEA /* Linked Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				1125DBAF0FF5A23900544B92 /* PurpleFacebookAccountView.nib */,
 			);
 			name = CocAIMe2;
 			sourceTree = "<group>";
@@ -8708,6 +8711,7 @@
 				34EF9A330E2EB637003E5DC7 /* MobileMe-small.png in Resources */,
 				34064CF20F21B27300AA6FE3 /* facebook.png in Resources */,
 				34064CF30F21B27300AA6FE3 /* facebook-small.png in Resources */,
+				1125DBB00FF5A23900544B92 /* PurpleFacebookAccountView.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
