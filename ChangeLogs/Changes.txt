@@ -1,5 +1,27 @@
 				Adium Version History
 				-----------------------
+Version 1.3.6 (8/18/2009)
+ * Updated to libpurple 2.5.9
+	* Fix a crash via a specially crafted MSN message (CVE-2009-2694).
+	* Fix a crash in Bonjour, MSN, and XMPP when trying to transfer files with
+	  NULL names.
+    * Numerous fixes from libpurple 2.5.8 (http://developer.pidgin.im/wiki/ChangeLog)
+ * Updated to pidgin-facebook 1.6.0 from 1.5.1
+    * Fixed issues with dropped & missed messages
+    * Fixed retrieval of profile information
+    * Fixed retrieval of buddy icons
+    * Fixed messaging with Facebook users whose user IDs are very large
+    * Numerous other fixes (http://code.google.com/p/pidgin-facebookchat/wiki/Changelog)
+ * Added option to control Facebook mail checking
+
+Version 1.3.5 (6/22/2009)
+ * Updated to libpurple 2.5.7
+    * Fixes for problems connecting to Yahoo.
+    * Only display the AIM “Unable to Retrieve Buddy List” message once per connection.
+    * Blocking MSN users not on your buddy list no longer disconnects you.
+    * MSN fixes for adding/removing and getting disconnected.
+ * Updated to pidgin-facebook 1.5.1, fixing several issues
+
 Version 1.3.4 (5/7/2009)
  * Facebook fixes
    * Updated to pidgin-facebook 1.5.0, fixing a major bug in which massive amounts of data could be continuously sent and received under certain situations as well as several minor bugs
