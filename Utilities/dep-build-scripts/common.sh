@@ -12,7 +12,7 @@ GLIB=glib-2.15.4
 MEANWHILE=meanwhile-1.0.2
 GADU=libgadu-1.7.1
 INTLTOOL=intltool-0.36.2
-JSONLIB=json-glib-0.6.2
+JSONLIB=json-glib-0.7.6
 
 # Directories
 BASEDIR="$PWD"
