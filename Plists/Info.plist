@@ -330,7 +330,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Adium</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.3.5hg, Copyright 2001-2009 The Adium Team</string>
+	<string>1.3.6, Copyright 2001-2009 The Adium Team</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>AdiumHelp</string>
 	<key>CFBundleHelpBookName</key>
@@ -346,7 +346,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3.5hg</string>
+	<string>1.3.6</string>
 	<key>CFBundleSignature</key>
 	<string>AdIM</string>
 	<key>CFBundleURLTypes</key>
@@ -415,7 +415,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.3.5hg</string>
+	<string>1.3.6</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.4.0</string>
 	<key>LSRequiresNativeExecution</key>
