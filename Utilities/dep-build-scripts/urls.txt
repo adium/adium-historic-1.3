@@ -12,7 +12,7 @@ http://mirrors.kernel.org/gnu/gettext/gettext-0.16.1.tar.gz
 ftp://ftp.gtk.org/pub/glib/2.15/glib-2.15.4.tar.gz
 ftp://ftp.andrew.cmu.edu/pub/cyrus-mail/OLD-VERSIONS/sasl/cyrus-sasl-2.1.18.tar.gz
 http://toxygen.net/libgadu/files/libgadu-1.7.1.tar.gz
-http://softlayer.dl.sourceforge.net/sourceforge/meanwhile/meanwhile-1.0.2.tar.gz
+http://softlayer.dl.sourceforge.net/project/meanwhile/meanwhile/1.0.2/meanwhile-1.0.2.tar.gz
 http://ftp.gnome.org/pub/gnome/sources/intltool/0.36/intltool-0.36.2.tar.gz
 http://pkgconfig.freedesktop.org/releases/pkg-config-0.22.tar.gz
-http://folks.o-hand.com/~ebassi/sources/json-glib-0.6.2.tar.gz
+http://ftp.gnome.org/pub/GNOME/sources/json-glib/0.7/json-glib-0.7.6.tar.gz
