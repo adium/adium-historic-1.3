@@ -16,7 +16,7 @@ LIBGMODULE=libgmodule-2.0.0
 MEANWHILE=libmeanwhile.1
 GADU=libgadu.3.7.0
 SASL=libsasl2.2
-JSONGLIB=libjson-glib-1.0.0
+JSONGLIB=libjson-glib-1.0
 
 PURPLE_VERSION=0.5.9
 
@@ -55,7 +55,7 @@ mkdir libgthread-2.0.0 || true
 touch libgthread-2.0.0/no_headers_here.txt
 
 mkdir libjson || true
-cp -R $TARGET_DIR_I386/include/json-glib-1.0/ $UNIVERSAL_DIR/include/libjson-glib/
+cp -R $TARGET_DIR_I386/include/json-glib-1.0/json-glib $UNIVERSAL_DIR/include/libjson-glib-1.0.0
 
 rm -rf $UNIVERSAL_DIR/include/$PURPLE_FOLDER
 cp -R $TARGET_DIR_I386/include/libpurple $UNIVERSAL_DIR/include/$PURPLE_FOLDER
