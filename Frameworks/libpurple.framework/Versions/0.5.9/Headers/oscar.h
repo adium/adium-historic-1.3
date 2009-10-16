@@ -530,6 +530,10 @@ struct _OscarData
 		struct userinfo_node *requested;
 	} locate;
 
+	struct {
+		gboolean have_rights;
+	} bos;
+
 	/* Server-stored information (ssi) */
 	struct {
 		gboolean received_data;
