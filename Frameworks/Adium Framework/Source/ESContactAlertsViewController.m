@@ -497,7 +497,7 @@ int actionSort(id objectA, id objectB, void *context)
 			[contactAlertsEvents addObject:eventID];
 			
 			//XXX
-			[contactAlertsActions addObject:[NSArray array]];
+			[contactAlertsActions addObject:[NSMutableArray array]];
 		}
 	}
 
