@@ -1,5 +1,8 @@
 				Adium Version History
 				-----------------------
+Version 1.3.8 (11/04/2009)
+ * Updated pidgin-facebook chat, fixing login.
+
 Version 1.3.7 (10/16/2009)
  * Updated libpurple
    * Fix a crash when some clients send contacts in a format we don't understand on ICQ.
