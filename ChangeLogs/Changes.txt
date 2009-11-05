@@ -2,6 +2,7 @@
 				-----------------------
 Version 1.3.8 (11/04/2009)
  * Updated pidgin-facebook chat, fixing login.
+ * Corrected the Events preferences not displaying the correct list on Snow Leopard.
 
 Version 1.3.7 (10/16/2009)
  * Updated libpurple
