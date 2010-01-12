@@ -73,8 +73,11 @@
 	//We're done drawing
 	[tempImage unlockFocus];
 	
+	NSEnumerator *repEnumerator = [[tempImage representations] objectEnumerator];
+	NSImageRep *rep = nil;	
+	
 	//Find an NSBitmapImageRep from the temporary image
-	for (NSImageRep *rep in tempImage.representations) {
+	while ((rep = [repEnumerator nextObject])) {
 		if ([rep isKindOfClass:[NSBitmapImageRep class]]) {
 			imageRep = (NSBitmapImageRep *)rep;
 		}
