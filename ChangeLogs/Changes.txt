@@ -1,5 +1,16 @@
 				Adium Version History
 				-----------------------
+Version 1.3.8 (11/04/2009)
+ * Updated pidgin-facebook chat, fixing login.
+ * Corrected the Events preferences not displaying the correct list on Snow Leopard.
+
+Version 1.3.7 (10/16/2009)
+ * Updated libpurple
+   * Fix a crash when some clients send contacts in a format we don't understand on ICQ.
+   * Fix blocking and other privacy lists on AIM/ICQ. 
+   * Fixed CAPTCHA not working properly on Facebook. 
+ * Fixed iChat emoticons on Snow Leopard.
+
 Version 1.3.6 (8/18/2009)
  * Updated to libpurple 2.5.9
 	* Fix a crash via a specially crafted MSN message (CVE-2009-2694).
