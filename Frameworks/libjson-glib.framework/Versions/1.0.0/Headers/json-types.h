@@ -40,57 +40,6 @@ G_BEGIN_DECLS
  */
 #define JSON_NODE_TYPE(node)    (json_node_get_node_type ((node)))
 
-/**
- * JSON_NODE_HOLDS:
- * @node: a #JsonNode
- * @t: a #JsonNodeType
- *
- * Evaluates to %TRUE if the @node holds type @t
- *
- * Since: 0.10
- */
-#define JSON_NODE_HOLDS(node,t)         (json_node_get_node_type ((node)) == (t))
-
-/**
- * JSON_NODE_HOLDS_VALUE:
- * @node: a #JsonNode
- *
- * Evaluates to %TRUE if @node holds a %JSON_NODE_VALUE
- *
- * Since: 0.10
- */
-#define JSON_NODE_HOLDS_VALUE(node)     (JSON_NODE_HOLDS ((node), JSON_NODE_VALUE))
-
-/**
- * JSON_NODE_HOLDS_OBJECT:
- * @node: a #JsonNode
- *
- * Evaluates to %TRUE if @node holds a %JSON_NODE_OBJECT
- *
- * Since: 0.10
- */
-#define JSON_NODE_HOLDS_OBJECT(node)    (JSON_NODE_HOLDS ((node), JSON_NODE_OBJECT))
-
-/**
- * JSON_NODE_HOLDS_ARRAY:
- * @node: a #JsonNode
- *
- * Evaluates to %TRUE if @node holds a %JSON_NODE_ARRAY
- *
- * Since: 0.10
- */
-#define JSON_NODE_HOLDS_ARRAY(node)     (JSON_NODE_HOLDS ((node), JSON_NODE_ARRAY))
-
-/**
- * JSON_NODE_HOLDS_NULL:
- * @node: a #JsonNode
- *
- * Evaluates to %TRUE if @node holds a %JSON_NODE_NULL
- *
- * Since: 0.10
- */
-#define JSON_NODE_HOLDS_NULL(node)      (JSON_NODE_HOLDS ((node), JSON_NODE_NULL))
-
 #define JSON_TYPE_NODE          (json_node_get_type ())
 #define JSON_TYPE_OBJECT        (json_object_get_type ())
 #define JSON_TYPE_ARRAY         (json_array_get_type ())
@@ -182,8 +131,6 @@ JsonNode *            json_node_copy            (JsonNode     *node);
 void                  json_node_free            (JsonNode     *node);
 JsonNodeType          json_node_get_node_type   (JsonNode     *node);
 GType                 json_node_get_value_type  (JsonNode     *node);
-void                  json_node_set_parent      (JsonNode     *node,
-                                                 JsonNode     *parent);
 JsonNode *            json_node_get_parent      (JsonNode     *node);
 G_CONST_RETURN gchar *json_node_type_name       (JsonNode     *node);
 
