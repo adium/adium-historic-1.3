@@ -1,5 +1,8 @@
 				Adium Version History
 				-----------------------
+Version 1.3.10 (01/12/2010)
+ * Disabled the Facebook CAPTCHA, updated the Facebook plugin.
+
 Version 1.3.9 (01/11/2010)
  * Updated libpurple to fix a security issue with custom emoticons.
  * Corrected user icons not updating correctly on Snow Leopard.
