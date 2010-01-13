@@ -38,6 +38,9 @@
 
 	// Disable this for 1.3 where we don't support multiple containers.
 	purple_account_set_bool(account, "facebook_use_groups", FALSE);
+	
+	// Disable the Facebook CAPTCHA since it causes heartache and pain.
+	purple_account_set_bool(account, "ignore-facebook-captcha", TRUE);
 }
 
 - (NSString *)host
