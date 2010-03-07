@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="generator" content="HTML Tidy for Mac OS X (vers 1st December 2004), see www.w3.org" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="aim, msn, yahoo, service features" />
+		<meta name="description" content="Service-specific features" />
+		<title>
+			Service-specific features
+		</title>
+		<link href="../css/task_style.css" type="text/css" rel="stylesheet" media="all" />
+	</head>
+	<body>
+		<div id="banner">
+			<div id="machelp">
+				<a class="bread" href="../AdiumHelp.html">Adium Help</a>
+			</div>
+			<div id="index">
+				<a class="leftborder" href="index.html">Index</a>
+			</div>
+		</div>
+		<div id="mainbox">
+			<div id="caticon">
+				<img src="../gfx/AdiumIcon.png" alt="Adium Icon" height="32" width="32" border="0" />
+			</div>
+			<div id="pagetitle">
+				<h1>
+					Service-specific features
+				</h1>
+			</div>
+			<p>
+				This page aims to explain some Adium features that are specific to services.
+			</p>
+			<p>
+				<b>Table of Contents</b>
+			</p>
+			<p>
+				<i>AIM</i>
+			</p>
+			<ul>
+				<li>Direct Connect
+				</li>
+				<li>Search for buddy by Email
+				</li>
+			</ul>
+			<p>
+				<i>MSN</i>
+			</p>
+			<ul>
+				<li>Turning HTTP connection on and off
+				</li>
+				<li>Nudge
+				</li>
+			</ul>
+			<p>
+				<i>Yahoo</i>
+			</p>
+			<ul>
+				<li>Buzz
+				</li>
+			</ul><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							AIM
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							<b>Direct Connect</b>
+						</p>
+						<p>
+							In the offical AIM client, it is possible to "directly connect" to someone and send them inline pictures and large blocks of text. DirectConnect is plagued by problems similar to those of <a href="Advanced-FileTransfer.html">FileTransfer</a> (e.g. NAT traversal).
+						</p>
+						<p>
+							Direct Connect is also called “direct messaging”, “direct IM”, or “direct chat”.
+						</p>
+						<p>
+							<i>Using Direct Connect</i>
+						</p>
+						<p>
+							Simply drag an image into your message window text entry area, and then send it, with or without additional text. Adium should prompt the remote user to accept a direct connect invitation (iChat automatically accepts such invitations) and then display the picture inline in both your message window and the other user's message window.
+						</p>
+						<p>
+							Note that direct connect support in libpurple, and by extension Adium, is mediocre at best; large images may fail to send, with poor or no error reporting. It is possible for a direct connect chat to 'freeze', leading to one or both parties not seeing messages sent by the other party. Simply close the chat to cancel out of the direct connect, at which point you can reopen a server-based chat with the contact. This is not an optimal situation, obviously, and we hope to improve Direct Connect support in the future.
+						</p>
+						<p>
+							<i>Improving Direct Connect</i>
+						</p>
+						<p>
+							Direct Connect uses port 4443. If you have a firewall, opening this port may help. If you have a router, forwarding this port may help.
+						</p>
+						<p>
+							Direct Connect and AIM File Transfer are interrelated; see <a href="Advanced-FileTransfer.html">FileTransfer</a> or <a href="http://trac.adium.im/wiki/DirectConnectionTechnologies">Direct Connection Technologies</a> (online Adium Wiki entry) for more details.
+						</p>
+						<p>
+							<b>Search for buddy by email</b>
+						</p>
+						<p>
+							If you want to find one of your AIM contacts by his/her email, just select select Search for Buddy by Email from the submenu off the AIM account in the File menu.
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							MSN
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							<b>Turning HTTP connection on and off</b>
+						</p>
+						<p>
+							Adium allows you to connect to the MSN service using HTTP, for situations when the MSN server is not reachable by normal means. This feature can be turned on and off in the Account Editor:
+						</p>
+					<center>
+						<img src="../gfx/ServiceFeatures-MSNOptions-ConnectViaHTTP.png" alt="Screenshot of the Account Editor, with the Connect via HTTP checkbox circled." width="500" />
+					</center>
+						<p>
+							The Account Editor can be accessed by double-clicking on the account in the Accounts list in Adium's Preferences.
+						</p>
+						<p>
+							<b>Nudge</b>
+						</p>
+						<p>
+							Adium calls it simply “notification”, and enables you to send and receive it. You need Adium 1.1 or later.
+						</p>
+						<p>
+							The same information on this page is also presented in <a href="http://adium.im/screencasts/?video=5">an Adium screencast</a> on our website, which shows the feature in action.
+						</p>
+						<p>
+							<i>Presenting notifications you receive</i>
+						</p>
+						<p>
+							When somebody nudges you, the official clients will shake the window and play a sound.
+						</p>
+						<p>
+							We don't offer the window-shaking action, but we do provide our entire usual suite of event actions. You see, receiving a notification is in Adium as one of the events in the Preferences. You determine what Adium will do when one comes in.
+						</p>
+						<p>
+							Simply select the “Notification received” event in the list, click the + button, and choose the action you want Adium to perform. You can add as many actions as you want.
+						</p>
+					<center>
+						<img src="../gfx/ServiceFeatures-Events-Notification.png" alt="Screenshot of the Account Editor, with the Connect via HTTP checkbox circled." width="373" />
+					</center>
+						<p>
+							<i>Sending notifications</i>
+						</p>
+						<p>
+							There are three ways to send a notification to one of your contacts:
+						</p>
+						<div style="margin-left: 2em">
+						<ul>
+							<li>The keyboard: Type “/nudge” into the inputline and press Return or Enter.
+							</li>
+							<li>The menu: Choose “Send Notification” from the Contact menu.
+							</li>
+							<li>The toolbar: The “Send Notification” button is not on the chat window toolbar by default, so you need to add it.
+							First, right-click on the chat window toolbar and choose “Customize Toolbar…”. This sheet will appear:
+					<center>
+						<img src="../gfx/ServiceFeatures-Toolbar-Configure-SendNotification.png" alt="Adium 1.2's Configure Toolbar sheet for the Chat window, with Send Notification highlighted in the sheet." width="500" />
+					</center>
+							<li>Drag the “Send Notification” button to the toolbar. Finally, click OK.
+							From then on, when you want to send a notification, click “Send Notification” (or the shaking-emoticon icon if you're using Icon Only mode).
+							</li>
+						</ul>
+						</div>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Yahoo
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							<b>Buzz</b>
+						</p>
+						<p>
+							Adium calls it simply “notification”, and enables you to send and receive it. You need Adium 1.1 or later.
+						</p>
+						<p>
+							The same information on this page is also presented in <a href="http://adium.im/screencasts/?video=5">an Adium screencast</a> on our website, which shows the feature in action.
+						</p>
+						<p>
+							<i>Presenting notifications you receive</i>
+						</p>
+						<p>
+							When somebody buzzes you, the official clients will shake the window and play a sound.
+						</p>
+						<p>
+							We don't offer the window-shaking action, but we do provide our entire usual suite of event actions. You see, receiving a notification is in Adium as one of the events in the Preferences. You determine what Adium will do when one comes in.
+						</p>
+						<p>
+							Simply select the “Notification received” event in the list, click the + button, and choose the action you want Adium to perform. You can add as many actions as you want.	
+						</p>
+					<center>
+						<img src="../gfx/ServiceFeatures-Events-Notification.png" alt="Screenshot of the Account Editor, with the Connect via HTTP checkbox circled." width="373" />
+					</center>
+						<p>
+							<i>Sending notifications</i>
+						</p>
+						<p>
+							There are three ways to send a notification to one of your contacts:
+						</p>
+						<ul>
+							<li>The keyboard: Type “/buzz” into the inputline and press Return or Enter.
+							</li>
+							<li>The menu: Choose “Send Notification” from the Contact menu.
+							</li>
+							<li>The toolbar: The “Send Notification” button is not on the chat window toolbar by default, so you need to add it.
+							First, right-click on the chat window toolbar and choose “Customize Toolbar…”. This sheet will appear:
+					<center>
+						<img src="../gfx/ServiceFeatures-Toolbar-Configure-SendNotification.png" alt="Adium 1.2's Configure Toolbar sheet for the Chat window, with Send Notification highlighted in the sheet." width="500" />
+					</center>
+							Drag the “Send Notification” button to the toolbar. Finally, click OK.
+							From then on, when you want to send a notification, click “Send Notification” (or the shaking-emoticon icon if you're using Icon Only mode).
+							</li>
+						</ul>
+						<p>
+							Drag the “Send Notification” button to the toolbar. Finally, click OK.
+						</p>
+						<p>
+							From then on, when you want to send a notification, click “Send Notification” (or the shaking-emoticon icon if you're using Icon Only mode).
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							Now, find out how to use Adium with <a href="http://growl.info">Growl</a>: <a href="Advanced-GrowlinAdium.html">GrowlinAdium</a>!
+						</p>
+					</td>
+				</tr>
+			</table><br />
+
+		</div>
+	</body>
+</html>

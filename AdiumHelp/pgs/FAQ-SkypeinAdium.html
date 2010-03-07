@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="skype">
+		<meta name="description" content="Skype in Adium">
+		<title>
+			Skype in Adium
+		</title>
+		<link media="all" rel="stylesheet" href="../css/task_style.css" type="text/css">
+	</head>
+	<body>
+		<div id="banner">
+			<a name="account" id="account"></a>
+			<div id="machelp">
+				<a class="bread" href="../AdiumHelp.html">Adium Help</a>
+			</div>
+			<div id="index">
+				<a class="leftborder" href="index.html">Index</a>
+			</div>
+		</div>
+		<div id="mainbox">
+			<div id="caticon">
+				<img src="../gfx/AdiumIcon.png" alt="Adium Icon" height="32" width="32" border="0">
+			</div>
+			<div id="pagetitle">
+				<h1>
+					Skype in Adium
+				</h1>
+			</div><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							I understand that you don't support VoiceAndVideo yet, but what about chat? Can I chat over Skype in Adium?
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>							Yes and no.						</p>
+						<p>
+							Yes: The third-party <a href="http://adiumxtras.com/index.php?a=xtras&xtra_id=5011">Skype Plugin</a> allows Adium to use the <a href="https://developer.skype.com/Docs/ApiDoc">Skype API</a> to display your Skype contacts within Adium and let you chat with them via text-based instant messaging. By the nature of the Skype API, it requires that the Skype program be installed and running.
+						</p>
+						<p>
+							No: It's not supported natively within Adium (i.e., without a plugin). The library that we use to support most protocols, <a href="http://trac.adium.im/wiki/LibPurple">libpurple</a>, doesn't support Skype at all right now, not even for chat. Until it does Adium most likely won't, either.
+						</p>
+						<p>
+							Keep in mind that Skype is a proprietary, closed protocol, so it must be reverse-engineered before third-party clients like Pidgin and Adium can use it. Protocols like OSCAR (AIM) and MSN have already been reverse-engineered, but they're much older than Skype, and reverse-engineering is hard. It will take a long time and won't happen at all unless someone chooses to take interest in it and dedicate significant time to the effort.
+						</p>
+						<p>
+							There is an existing ticket for this request: <a href="http://trac.adium.im/ticket/247">#247</a>. In that ticket, a significant bounty for Skype support has been offered by various users. If you want to take on the project, post a comment in the ticket and get hacking!
+						</p>
+					</td>				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							What about the Skype API?
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							We can't package the Skype API with Adium because of licensing issues, as the API's files are not open source. Also, using the Skype API, as the Skype Plugin, means that Skype needs to be running.
+						</p>
+						<p>
+							We want to do it right, with first-class support for the protocol in Adium, whether it's by a reverse-engineered implementation (of sufficient quality) or by an official embeddable library published by Skype. The former hasn't happened yet and we don't foresee the latter happening either, and we don't accept piggybacking on the official client as a substitute, so until one of those two happens, Adium will not have support for Skype.
+						</p>
+					</td>				</tr>
+			</table><br />			
+		</div>
+	</body>
+</html>

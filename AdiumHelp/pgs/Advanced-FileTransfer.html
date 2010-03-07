@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="generator" content="HTML Tidy for Mac OS X (vers 1st December 2004), see www.w3.org" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="file, transfer, ft" />
+		<meta name="description" content="File Transfer" />
+		<title>
+			File Transfer
+		</title>
+		<link href="../css/task_style.css" type="text/css" rel="stylesheet" media="all" />
+	</head>
+	<body>
+		<div id="banner">
+			<a name="file-transfer" id="file-transfer"></a>
+			<div id="machelp">
+				<a class="bread" href="../AdiumHelp.html">Adium Help</a>
+			</div>
+			<div id="index">
+				<a class="leftborder" href="index.html">Index</a>
+			</div>
+		</div>
+		<div id="mainbox">
+			<div id="caticon">
+				<img src="../gfx/AdiumIcon.png" alt="Adium Icon" height="32" width="32" border="0" />
+			</div>
+			<div id="pagetitle">
+				<h1>
+					File Transfer
+				</h1>
+			</div>
+			<p>
+				Adium's file transfer is not complete and may work sometimes and not others. We are very aware of these issues and the importance of file transfer support, but unfortunately the complicated and varied nature of file transfer means that file transfer support is limited.
+			</p>
+			<p>
+				Adium uses the <a href="http://trac.adium.im/wiki/LibPurple">libpurple</a> library to implement almost all the protocols that it supports. Most problems are caused by bugs or missing features in libpurple; as such, there's nothing we can do about them. These issues affect other applications (specifically, they affect any application based upon libpurple), and if they were simple to solve, we can guarantee you they would already have been. We appreciate your understanding.
+			</p>
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Which protocols support file transfer?
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							(Taken from the Pidgin FAQ - This information applies to Adium as well)
+						</p>
+						<p>
+							Sending and receiving files is currently supported on:
+						</p>
+						<div style="margin-left: 2em">
+						<ul>
+							<li>AIM (hard limit of 4 GB)
+							</li>
+							<li>ICQ (hard limit of 4 GB)
+							</li>
+							<li>IRC
+							</li>
+							<li>MSN (send through server only)
+							</li>
+							<li>SILC (not yet in Adium)
+							</li>
+							<li>Yahoo when not using an HTTP proxy (is relayed via a file transfer server).
+							</li>
+							<li>XMPP (Jabber) when neither side is behind a NAT device.
+							</li>
+						</ul>
+						</div>
+						<p>
+							Most protocols support file transfer, but libpurple doesn't support it yet. If you would like the file transfer support to work better or be more complete, grab the source and submit a patch!
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Initiating a File Transfer
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							There are a variety of ways to initiate a file transfer with another user:
+						</p>
+						<div style="margin-left: 2em">
+						<ul>
+							<li>Click the <strong>File Transfer icon</strong> (Document with a green arrow icon), located in the message view's toolbar.
+							</li>
+							<li>Select the destination user in the contact list then click <strong>Contact-&gt;Send File...</strong>
+							</li>
+							<li>Simply drag and drop a file from the Finder onto the contact in your Contact List.
+							</li>
+						</ul>
+						</div>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Improving AIM and ICQ file transfer
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							If AIM file transfer is flaky or doesn't work at all for you, you may need to forward ports 5190 through 5200 to your computer in your router, NAT, cable modem, or DSL modem.
+						</p>
+						<p>
+							In addition, if you use a firewall, you need to open ports 5190 through 5200 for outgoing connections (to receive) and incoming connections (to send).
+						</p>
+						<p>
+							<b>Mac OS X firewall</b>
+						</p>
+						<p>
+							Mac OS X's built-in firewall, if you've turned it on, blocks incoming connections except on ports you've explicitly allowed. You'll need to allow incoming connections to Adium in order to send files.
+						</p>
+						<p>
+							<i>In Mac OS X 10.5 (Leopard) and later:</i>
+						</p>
+						<div style="margin-left: 2em">
+						<ol>
+							<li>Choose System Preferences from the Apple () menu.
+							</li>
+							<li>Click Security.
+							</li>
+							<li>Click on the Firewall tab.
+							</li>
+							<li>If “Allow all incoming connections” is selected, the firewall is off, so you can stop right here.
+							</li>
+							<li>If “Allow only essential services” is selected, select “Set access for specific services and applications”.
+							</li>
+							<li>Click the + button.
+							</li>
+							<li>Hold down the ⌘ key, and while holding that down, drag Adium from the Dock (at the bottom of the screen) to the Open sheet.
+							</li>
+							<li>Click Add.
+							</li>
+							<li>The column on the right should read, for Adium's row, “Allow incoming connections”. If if it reads “Block incoming connections”, click on it, then change it to “Allow”.
+							</li>
+						</ol>
+						</div>
+						<p>
+							<i>In Mac OS X 10.4.0 through 10.4.11 (Tiger):</i>
+						</p>
+						<div style="margin-left: 2em">
+						<ol>		
+							<li>Choose System Preferences from the Apple () menu.
+							</li>
+							<li>Click Sharing.
+							</li>
+							<li>Click on the Firewall tab.
+							</li>
+							<li>If the text at the upper-left of the corner of the firewall section reads “Firewall Off”, then you can stop right here.
+							</li>
+							<li>Click New.
+							</li>
+							<li>Change Port Name to “Other”.
+							</li>
+							<li>Type “5190-5200” into the “TCP Port Number(s)” field.
+							</li>
+							<li>Type "AIM" into the description field.
+							</li>
+							<li>Click OK.
+							</li>
+						</ul>
+						</div>
+						<p>
+							AIM file transfer and <a href="Advanced-ServiceFeatures.html">Direct Connect</a> are interrelated. See the online Adium Wiki entry <a href="http://trac.adium.im/wiki/DirectConnectionTechnologies">"Direct Connection Technologies"</a> for more information on how this is accomplished.
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Why does AIM file transfer work in iChat and not in Adium in certain situations?
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<div style="margin-left: 2em">
+						<ul>
+							<li>When the sender is behind a firewall or router, libpurple's AIM file transfer implementation may fail. See the previous section for more information.
+							</li>
+							<li>libpurple does not support transferring of entire folders yet; such transfers will fail.
+							</li>
+						</ul>
+						</div>
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Why is MSN file transfer so slow?
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							MSN file transfers in the protocol supported by libpurple go through the Microsoft server. They are therefore very reliable but also quite slow. MSN7 and other MSN clients support a direct person-to-person transfer as is used in AIM, which is not yet supported by libpurple.
+						</p>
+						<p>
+							The libpurple developers don't know if or when they will ever support any of the peer-to-peer file transfer methods available in the MSN protocol. Therefore we don't know if or when this will make it into an Adium release.
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Why doesn't file transfer work over Google Talk?
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							Because Google Talk uses a different protocol, called Jingle, for file transfers (as well as voice calls - <a href="http://groups.google.ca/group/google-talk-open/browse_thread/thread/61ad293b4790faeb/821b891053a55a0b?lnk=arm#821b891053a55a0b">here</a> are the gritty details). The Google Talk servers disallow file transfers using the protocol that other Jabber services use. Note that although Google promised to release their specifications for this protocol back in 2007, they have not yet done so, so we are unable to implement it, even if we had the time to do it.
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							Now click for Adium's <a href="Advanced-AddressBookIntegration.html">Address Book Integration</a>.
+						</p>
+					</td>
+				</tr>
+			</table><br />
+		</div>
+	</body>
+</html>
