@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="generator" content="HTML Tidy for Mac OS X (vers 1st December 2004), see www.w3.org" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="preferences, prefs" />
+		<meta name="description" content="Preferences" />
+		<title>
+			Preferences
+		</title>
+		<link href="../css/task_style.css" type="text/css" rel="stylesheet" media="all" />
+	</head>
+	<body>
+		<div id="banner">
+			<a name="preferences" id="preferences"></a>
+			<div id="machelp">
+				<a class="bread" href="../AdiumHelp.html">Adium Help</a>
+			</div>
+			<div id="index">
+				<a class="leftborder" href="index.html">Index</a>
+			</div>
+		</div>
+		<div id="mainbox">
+			<div id="caticon">
+				<img src="../gfx/AdiumIcon.png" alt="Adium Icon" height="32" width="32" border="0" />
+			</div>
+			<div id="pagetitle">
+				<h1>
+					Preferences
+				</h1>
+			</div>
+			<p>
+				In some situations, you may want to have access to an account's preferences. This is useful in situations that require copying an account's preferences to a different computer.
+			</p>
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Where does Adium save preferences?
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							Adium's preferences are located at <i>~/Library/Application Support/Adium 2.0</i>.
+						</p>
+						<div style="margin-left: 2em">
+						<ul>
+							<li>The preferences are stored in the <i>"Users"</i> folder, under <i>"Default"</i>.
+							</li>
+							<li>Other folders in the "<i>Adium 2.0</i>" folder contain your installed <a href="http://www.adiumxtras.com">AdiumXtras</a>.
+							</li>
+						</ul>
+						</div>
+						<p>
+							There is also a preference file at: <i>~/Library/Preferences/com.adiumX.adiumX.plist</i>,
+						</p>
+					</td>
+				</tr>
+			</table><br />
+			<table class="dots" width="100%" border="0" cellspacing="0" cellpadding="0" summary="One column table with heading">
+				<tr>
+					<td class="blue" colspan="2">
+						<h3>
+							Troubleshooting Preferences
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							If you believe that corrupt or oddly configured preferences may be causing problems in Adium, the quickest way to rule out these issues is by temporarily creating a new set of preferences and checking if the problem still persists.
+						</p>
+						<div style="margin-left: 2em">
+						<ol>
+							<li>Quit Adium.
+							</li>
+							<li>Rename the "Adium 2.0" folder to "Adium 2.0-old".
+							</li>
+							<li>Rename the "com.adiumX.adiumX.plist" to "com.adiumX.adiumX-old.plist".
+							</li>
+							<li>Relaunch Adium. Check if your problems persist.
+							</li>
+						</ol>
+						</div>
+						<p>
+							If that doesn't work, then you want to revert to your previous preferences.
+						</p>
+						<div style="margin-left: 2em">
+						<ol>
+							<li>Quit Adium.
+							</li>
+							<li>Delete the new "Adium 2.0" folder and the new "com.adiumX.adiumX.plist" file that Adium created.
+							</li>
+							<li>Rename your "Adium 2.0-old" folder back to "Adium 2.0" and "com.adiumX.adiumX-old.plist" to "com.adiumX.adiumX.plist".
+							</li>
+						</ol>
+						</div>
+					</td>
+				</tr>
+			</table><br />
+		</div>
+	</body>
+</html>
