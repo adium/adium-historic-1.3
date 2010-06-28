@@ -437,7 +437,9 @@ NSString* serviceIDForJabberUID(NSString *UID);
 	if (useMiddleName && middleName)
 		firstName = [NSString stringWithFormat:@"%@ %@", firstName, middleName];
 
-	if (useNickName && (nickName = [person valueForProperty:kABNicknameProperty])) {
+	if (useNickName &&
+		(nickName = [person valueForProperty:kABNicknameProperty]) &&
+		![nickName isEqualToString:@""]) {
 		displayName = nickName;
 
 	} else if (!lastName || (thisDisplayFormat == First)) {  
