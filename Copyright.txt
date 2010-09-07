@@ -30,15 +30,18 @@ Peter Hosey
 Adam Iser
 Daniel M. Jordan
 Severin Klaus
+Eitan Konigsburg
 Alexander Kolov
 Ian Krieg
 Thomas Kunze
+Gayle Laakmann
 Scott Lamb
 Adam Leonard
 Jack M.H. Lin
 Paul R. Livesey
 Casey Lutz
 Sam McCandlish
+Pietro Modi
 Nicola Del Monaco
 Yan Morissette
 Jeffrey Melloy
@@ -49,6 +52,7 @@ Daisuke Okada
 Stephen Poprocki
 Xavid Pretzer
 Eric Richie
+Eion Robb
 Jesse Rusak
 Evan Schoenberg
 Adam Seering
