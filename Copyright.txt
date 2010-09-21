@@ -11,8 +11,10 @@ Graham Booker
 Jorge Salvador Caffarena
 Wesley Campaigne
 David Clark
-Nelson Elhage
+Brian Dickman
 Michael Dippery
+Nelson Elhage
+Alexey "zee" Ermakov
 Augie Fackler
 Ken Ferry
 Christopher Forsythe
@@ -49,11 +51,13 @@ David Munch
 Roeland Nas
 Laura Natcher
 Daisuke Okada
+Ngan Pham
 Stephen Poprocki
 Xavid Pretzer
 Eric Richie
 Eion Robb
 Jesse Rusak
+Jordan Schelew
 Evan Schoenberg
 Adam Seering
 Chris Serino
@@ -61,13 +65,10 @@ Jeremy W. Sherman
 David Smith
 Greg Smith
 Kent Sutherland
+Mike Timm
 Vinay Venkatesh
 Wesley Underwood
 Zachary West
 Ofri Wolfus
-Brian Dickman
-Jordan Schelew
-Mike Timm
-Ngan Pham
 
 If you have contributed to Adium and are not on this list, please contact us.
